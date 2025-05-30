@@ -7,8 +7,8 @@ const nextConfig = {
   images: {
     unoptimized: true
   },
-  assetPrefix: process.env.NODE_ENV === 'production' ? '/Thecovesurfhouse' : '',
-  basePath: process.env.NODE_ENV === 'production' ? '/Thecovesurfhouse' : '',
+  assetPrefix: process.env.NODE_ENV === 'production' ? '/Surf-Hani' : '',
+  basePath: process.env.NODE_ENV === 'production' ? '/Surf-Hani' : '',
 }
 
 module.exports = nextConfig 
