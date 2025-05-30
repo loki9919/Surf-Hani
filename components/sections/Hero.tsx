@@ -16,7 +16,7 @@ const Hero = () => {
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="/images/hostel-room.jpg"
+          src={`${process.env.NODE_ENV === 'production' ? '/Surf-Hani' : ''}/images/hostel-room.jpg`}
           alt="Cozy hostel room at The Cove Surf House"
           fill
           className="object-cover"
