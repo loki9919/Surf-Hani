@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom CSS Variables */
+:root {
+  --font-inter: 'Inter', system-ui, sans-serif;
+  --font-playfair: 'Playfair Display', serif;
+}
+
+/* Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-inter);
+  line-height: 1.6;
+  color: #333;
+  overflow-x: hidden;
+}
+
+/* Custom Animations */
+@keyframes wave-horizontal {
+  0%, 100% { transform: translateX(-25px); }
+  50% { transform: translateX(25px); }
+}
+
+@keyframes surfboard-float {
+  0%, 100% { transform: translateY(0px) rotate(-2deg); }
+  50% { transform: translateY(-15px) rotate(2deg); }
+}
+
+.wave-animation {
+  animation: wave-horizontal 4s ease-in-out infinite;
+}
+
+.surfboard-animation {
+  animation: surfboard-float 5s ease-in-out infinite;
+}
+
+/* Scroll-triggered animations */
+.scroll-fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease-out;
+}
+
+.scroll-fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.scroll-slide-left {
+  opacity: 0;
+  transform: translateX(-30px);
+  transition: all 0.8s ease-out;
+}
+
+.scroll-slide-left.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.scroll-slide-right {
+  opacity: 0;
+  transform: translateX(30px);
+  transition: all 0.8s ease-out;
+}
+
+.scroll-slide-right.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Custom Components */
+.btn-primary {
+  @apply bg-terracotta text-white px-6 py-3 rounded-lg font-medium transition-all duration-300 hover:bg-opacity-90 hover:shadow-lg hover:scale-105 focus:outline-none focus:ring-2 focus:ring-terracotta focus:ring-opacity-50;
+}
+
+.btn-secondary {
+  @apply bg-ocean text-white px-6 py-3 rounded-lg font-medium transition-all duration-300 hover:bg-opacity-90 hover:shadow-lg hover:scale-105 focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-opacity-50;
+}
+
+.card {
+  @apply bg-white rounded-lg shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl hover:scale-105;
+}
+
+.section-padding {
+  @apply py-16 px-4 sm:px-6 lg:px-8;
+}
+
+/* Gradient backgrounds */
+.gradient-sunset {
+  background: linear-gradient(135deg, #ef8e2f 0%, #be4f34 100%);
+}
+
+.gradient-ocean {
+  background: linear-gradient(135deg, #006c79 0%, #004d56 100%);
+}
+
+/* Typography */
+.heading-xl {
+  @apply text-4xl sm:text-5xl lg:text-6xl font-bold font-serif;
+}
+
+.heading-lg {
+  @apply text-3xl sm:text-4xl lg:text-5xl font-bold font-serif;
+}
+
+.heading-md {
+  @apply text-2xl sm:text-3xl font-bold font-serif;
+}
+
+.heading-sm {
+  @apply text-xl sm:text-2xl font-semibold;
+} 
