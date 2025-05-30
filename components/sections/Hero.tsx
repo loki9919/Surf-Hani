@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 
 const Hero = () => {
   const [isVisible, setIsVisible] = useState(false)
@@ -11,9 +12,22 @@ const Hero = () => {
   }, [])
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-ocean via-ocean/90 to-terracotta">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      {/* Background Image */}
+      <div className="absolute inset-0 z-0">
+        <Image
+          src="/images/hostel-room.jpg"
+          alt="Cozy hostel room at The Cove Surf House"
+          fill
+          className="object-cover"
+          priority
+        />
+        {/* Overlay gradient to ensure text readability */}
+        <div className="absolute inset-0 bg-gradient-to-br from-ocean/80 via-ocean/70 to-terracotta/80"></div>
+      </div>
+
       {/* Animated Background Elements */}
-      <div className="absolute inset-0">
+      <div className="absolute inset-0 z-5">
         {/* Animated Waves */}
         <svg
           className="absolute bottom-0 left-0 w-full h-64 wave-animation"
@@ -42,20 +56,20 @@ const Hero = () => {
       {/* Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          <h1 className="heading-xl text-white mb-6">
+          <h1 className="heading-xl text-white mb-6 drop-shadow-lg">
             Where Ocean Meets
             <span className="block text-gold">Adventure</span>
           </h1>
           
-          <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-xl text-white/95 mb-8 max-w-2xl mx-auto leading-relaxed drop-shadow-md">
             Discover your perfect wave at The Cove Surf House. Experience authentic Moroccan coastal culture, 
             world-class surf breaks, and unforgettable adventures in the heart of Tamraght.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Link
-              href="/contact"
-              className="btn-primary text-lg px-8 py-4 inline-flex items-center space-x-2"
+              href="/booking"
+              className="btn-primary text-lg px-8 py-4 inline-flex items-center space-x-2 shadow-lg"
             >
               <span>Book Your Stay</span>
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -65,7 +79,7 @@ const Hero = () => {
             
             <Link
               href="/activities"
-              className="btn-secondary text-lg px-8 py-4 inline-flex items-center space-x-2"
+              className="btn-secondary text-lg px-8 py-4 inline-flex items-center space-x-2 shadow-lg"
             >
               <span>Explore Activities</span>
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -77,7 +91,7 @@ const Hero = () => {
       </div>
 
       {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce z-10">
         <svg className="w-6 h-6 text-white/70" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
         </svg>

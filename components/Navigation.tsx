@@ -20,7 +20,6 @@ const Navigation = () => {
     { href: '/about', label: 'About' },
     { href: '/activities', label: 'Activities' },
     { href: '/gallery', label: 'Gallery' },
-    { href: '/contact', label: 'Contact' },
   ]
 
   return (
@@ -51,7 +50,7 @@ const Navigation = () => {
               </Link>
             ))}
             <Link
-              href="/contact"
+              href="/booking"
               className="btn-primary"
             >
               Book Now
@@ -89,8 +88,8 @@ const Navigation = () => {
                 </Link>
               ))}
               <Link
-                href="/contact"
-                className="block px-3 py-2 bg-terracotta text-white rounded-md hover:bg-opacity-90 transition-all duration-200 mt-2"
+                href="/booking"
+                className="block w-full text-left px-3 py-2 bg-terracotta text-white rounded-md hover:bg-opacity-90 transition-all duration-200 mt-2"
                 onClick={() => setIsOpen(false)}
               >
                 Book Now

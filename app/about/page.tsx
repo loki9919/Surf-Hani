@@ -1,9 +1,6 @@
-import type { Metadata } from 'next'
+'use client'
 
-export const metadata: Metadata = {
-  title: 'About Us | The Cove Surf House',
-  description: 'Learn about The Cove Surf House story, our mission, and the passionate team dedicated to creating unforgettable surf and cultural experiences in Tamraght, Morocco.',
-}
+import Link from 'next/link'
 
 export default function About() {
   return (
@@ -156,15 +153,15 @@ export default function About() {
             Become part of The Cove Surf House family. Book your stay and create memories 
             that will last a lifetime in beautiful Tamraght.
           </p>
-          <a
-            href="/contact"
+          <Link
+            href="/booking"
             className="btn-primary text-lg px-8 py-4 inline-flex items-center space-x-2 bg-white text-ocean hover:bg-gray-100"
           >
             <span>Get in Touch</span>
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
             </svg>
-          </a>
+          </Link>
         </div>
       </section>
     </div>

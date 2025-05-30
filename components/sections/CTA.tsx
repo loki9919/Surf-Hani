@@ -58,7 +58,7 @@ const CTA = () => {
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Link
-              href="/contact"
+              href="/booking"
               className="bg-white text-ocean px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 hover:shadow-lg hover:scale-105 focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-50 inline-flex items-center space-x-2"
             >
               <span>Book Your Adventure</span>

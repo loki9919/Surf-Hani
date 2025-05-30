@@ -1,9 +1,6 @@
-import type { Metadata } from 'next'
+'use client'
 
-export const metadata: Metadata = {
-  title: 'Activities & Experiences | The Cove Surf House',
-  description: 'Discover amazing activities at The Cove Surf House: surf lessons, horseback riding, hiking tours, cooking workshops, music sessions, and fire camps in Tamraght, Morocco.',
-}
+import Link from 'next/link'
 
 export default function Activities() {
   const activities = [
@@ -78,7 +75,12 @@ export default function Activities() {
               <div key={activity.title} className="card overflow-hidden group hover:shadow-2xl transition-all duration-300">
                 <div className="p-8">
                   <div className="flex items-center mb-6">
-                    <div className={`w-16 h-16 rounded-full bg-${activity.color}/10 flex items-center justify-center text-3xl mr-4`}>
+                    <div className={`w-16 h-16 rounded-full flex items-center justify-center text-3xl mr-4 ${
+                      activity.color === 'ocean' ? 'bg-ocean/10' :
+                      activity.color === 'terracotta' ? 'bg-terracotta/10' :
+                      activity.color === 'dune' ? 'bg-dune/10' :
+                      activity.color === 'gold' ? 'bg-gold/10' : 'bg-gray-100'
+                    }`}>
                       {activity.icon}
                     </div>
                     <div>
@@ -100,129 +102,20 @@ export default function Activities() {
                     ))}
                   </div>
                   
-                  <button className={`w-full bg-${activity.color} text-white px-6 py-3 rounded-lg font-medium transition-all duration-300 hover:bg-opacity-90 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-${activity.color} focus:ring-opacity-50`}>
+                  <Link 
+                    href={`/booking?activity=${encodeURIComponent(activity.title)}`}
+                    className={`w-full text-white px-6 py-3 rounded-lg font-medium transition-all duration-300 hover:bg-opacity-90 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-opacity-50 inline-flex items-center justify-center ${
+                      activity.color === 'ocean' ? 'bg-ocean hover:bg-ocean/90 focus:ring-ocean' :
+                      activity.color === 'terracotta' ? 'bg-terracotta hover:bg-terracotta/90 focus:ring-terracotta' :
+                      activity.color === 'dune' ? 'bg-dune hover:bg-dune/90 focus:ring-dune' :
+                      activity.color === 'gold' ? 'bg-gold hover:bg-gold/90 focus:ring-gold' : 'bg-gray-600'
+                    }`}
+                  >
                     Book This Experience
-                  </button>
+                  </Link>
                 </div>
               </div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Packages Section */}
-      <section className="section-padding bg-gray-50">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="heading-lg text-ocean mb-6">Experience Packages</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Combine multiple activities for the ultimate Moroccan surf and culture adventure. 
-              Our packages offer better value and a more comprehensive experience.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="card p-8 text-center relative overflow-hidden">
-              <div className="absolute top-0 right-0 bg-gold text-white px-3 py-1 text-sm font-medium">
-                Most Popular
-              </div>
-              <h3 className="heading-sm text-gray-900 mb-4">Surf & Culture</h3>
-              <div className="text-3xl font-bold text-ocean mb-2">€150</div>
-              <div className="text-gray-500 mb-6">per person / 3 days</div>
-              <ul className="space-y-3 mb-8 text-left">
-                <li className="flex items-center">
-                  <svg className="w-5 h-5 text-green-500 mr-3" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                  </svg>
-                  3 surf lessons
-                </li>
-                <li className="flex items-center">
-                  <svg className="w-5 h-5 text-green-500 mr-3" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                  </svg>
-                  Cooking workshop
-                </li>
-                <li className="flex items-center">
-                  <svg className="w-5 h-5 text-green-500 mr-3" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                  </svg>
-                  Evening fire camp
-                </li>
-                <li className="flex items-center">
-                  <svg className="w-5 h-5 text-green-500 mr-3" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                  </svg>
-                  Equipment included
-                </li>
-              </ul>
-              <button className="btn-primary w-full">Choose Package</button>
-            </div>
-
-            <div className="card p-8 text-center">
-              <h3 className="heading-sm text-gray-900 mb-4">Adventure Seeker</h3>
-              <div className="text-3xl font-bold text-ocean mb-2">€200</div>
-              <div className="text-gray-500 mb-6">per person / 4 days</div>
-              <ul className="space-y-3 mb-8 text-left">
-                <li className="flex items-center">
-                  <svg className="w-5 h-5 text-green-500 mr-3" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                  </svg>
-                  2 surf lessons
-                </li>
-                <li className="flex items-center">
-                  <svg className="w-5 h-5 text-green-500 mr-3" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                  </svg>
-                  Horseback riding
-                </li>
-                <li className="flex items-center">
-                  <svg className="w-5 h-5 text-green-500 mr-3" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                  </svg>
-                  Hiking tour
-                </li>
-                <li className="flex items-center">
-                  <svg className="w-5 h-5 text-green-500 mr-3" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                  </svg>
-                  Transportation
-                </li>
-              </ul>
-              <button className="btn-secondary w-full">Choose Package</button>
-            </div>
-
-            <div className="card p-8 text-center">
-              <h3 className="heading-sm text-gray-900 mb-4">Complete Experience</h3>
-              <div className="text-3xl font-bold text-ocean mb-2">€300</div>
-              <div className="text-gray-500 mb-6">per person / 7 days</div>
-              <ul className="space-y-3 mb-8 text-left">
-                <li className="flex items-center">
-                  <svg className="w-5 h-5 text-green-500 mr-3" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                  </svg>
-                  All activities included
-                </li>
-                <li className="flex items-center">
-                  <svg className="w-5 h-5 text-green-500 mr-3" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                  </svg>
-                  5 surf lessons
-                </li>
-                <li className="flex items-center">
-                  <svg className="w-5 h-5 text-green-500 mr-3" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                  </svg>
-                  All cultural experiences
-                </li>
-                <li className="flex items-center">
-                  <svg className="w-5 h-5 text-green-500 mr-3" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                  </svg>
-                  Best value
-                </li>
-              </ul>
-              <button className="btn-primary w-full">Choose Package</button>
-            </div>
           </div>
         </div>
       </section>
@@ -235,15 +128,15 @@ export default function Activities() {
             Book your activities now and get ready for an unforgettable experience in Tamraght. 
             Our team is here to help you create the perfect itinerary.
           </p>
-          <a
-            href="/contact"
+          <Link
+            href="/booking"
             className="btn-primary text-lg px-8 py-4 inline-flex items-center space-x-2 bg-white text-ocean hover:bg-gray-100"
           >
             <span>Book Your Experience</span>
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
             </svg>
-          </a>
+          </Link>
         </div>
       </section>
     </div>
