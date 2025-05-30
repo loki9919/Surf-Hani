@@ -15,8 +15,8 @@ module.exports = {
         white: '#FFFFFF',
       },
       fontFamily: {
-        sans: ['Inter', 'system-ui', 'sans-serif'],
-        serif: ['Playfair Display', 'serif'],
+        sans: ['Inter', 'Inter Fallback', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Arial', 'sans-serif'],
+        serif: ['Playfair Display', 'Playfair Fallback', 'Georgia', 'Times New Roman', 'serif'],
       },
       animation: {
         'wave': 'wave 3s ease-in-out infinite',
