@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Inter, Playfair_Display } from 'next/font/google'
+import { Inter, Poppins } from 'next/font/google'
 import './globals.css'
 import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
@@ -7,15 +7,17 @@ import Footer from '@/components/Footer'
 const inter = Inter({ 
   subsets: ['latin'],
   variable: '--font-inter',
+  weight: ['300', '400', '500', '600', '700', '800'],
   display: 'swap',
   fallback: ['system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Arial', 'sans-serif'],
 })
 
-const playfair = Playfair_Display({ 
+const poppins = Poppins({ 
   subsets: ['latin'],
-  variable: '--font-playfair',
+  variable: '--font-poppins',
+  weight: ['300', '400', '500', '600', '700', '800', '900'],
   display: 'swap',
-  fallback: ['Georgia', 'serif'],
+  fallback: ['Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Arial', 'sans-serif'],
 })
 
 export const metadata: Metadata = {
@@ -46,11 +48,11 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
-          href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
           rel="stylesheet"
         />
       </head>
-      <body className={`${inter.variable} ${playfair.variable} font-sans antialiased`}>
+      <body className={`${inter.variable} ${poppins.variable} font-sans antialiased`}>
         <Navigation />
         <main className="min-h-screen">
           {children}

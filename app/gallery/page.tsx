@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 
 export const metadata: Metadata = {
   title: 'Gallery | The Cove Surf House',
@@ -6,6 +7,22 @@ export const metadata: Metadata = {
 }
 
 export default function Gallery() {
+  // Gallery images - numbered ones first, then others
+  const galleryImages = [
+    { src: '2.png', alt: 'Life at The Cove Surf House' },
+    { src: '3.png', alt: 'Surf experiences and activities' },
+    { src: '7.png', alt: 'Beautiful moments at our surf house' },
+    { src: '8.png', alt: 'Authentic Moroccan experiences' },
+    { src: '10.png', alt: 'Guest activities and adventures' },
+    { src: 'waves.jpg', alt: 'Perfect waves at Tamraght Beach' },
+    { src: 'surf_fograss.png', alt: 'Surfing adventures and experiences' },
+    { src: 'fire.png', alt: 'Evening fire camps on the beach' },
+    { src: 'hiking.png', alt: 'Hiking tours and mountain adventures' },
+    { src: 'tea.png', alt: 'Traditional Moroccan tea culture' },
+    { src: 'horse.png', alt: 'Horseback riding experiences' },
+    { src: 'images/hostel-room.jpg', alt: 'Comfortable accommodation at The Cove' }
+  ]
+
   return (
     <div className="pt-16">
       <section className="section-padding bg-gradient-to-br from-ocean to-terracotta text-white">
@@ -39,12 +56,18 @@ export default function Gallery() {
           <h2 className="heading-lg text-ocean mb-12 text-center">Photo Gallery</h2>
           
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {Array.from({length: 12}, (_, i) => (
-              <div key={i} className="card overflow-hidden aspect-square">
-                <div className="w-full h-full bg-gradient-to-br from-ocean to-terracotta">
-                  <div className="w-full h-full bg-gray-300 flex items-center justify-center">
-                    <span className="text-gray-500">Photo {i + 1}</span>
-                  </div>
+            {galleryImages.map((image, i) => (
+              <div key={i} className="card overflow-hidden aspect-square group cursor-pointer hover:shadow-2xl transition-all duration-300">
+                <div className="w-full h-full relative">
+                  <Image
+                    src={`${process.env.NODE_ENV === 'production' ? '/Surf-Hani' : ''}/${image.src}`}
+                    alt={image.alt}
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                  
+                  {/* Hover overlay */}
+                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300"></div>
                 </div>
               </div>
             ))}

@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import Image from 'next/image'
 
 export default function Activities() {
   const activities = [
@@ -10,7 +11,8 @@ export default function Activities() {
       features: ["Beginner to advanced levels", "Professional equipment included", "Small group sizes", "Safety-first approach"],
       duration: "2-3 hours",
       icon: "🏄‍♂️",
-      color: "ocean"
+      color: "ocean",
+      backgroundImage: "surf.png"
     },
     {
       title: "Horseback Riding",
@@ -18,7 +20,8 @@ export default function Activities() {
       features: ["Beach and countryside routes", "Sunset rides available", "All skill levels welcome", "Professional guides"],
       duration: "1-2 hours",
       icon: "🐎",
-      color: "terracotta"
+      color: "terracotta",
+      backgroundImage: "horse.png"
     },
     {
       title: "Hiking Tours",
@@ -26,7 +29,8 @@ export default function Activities() {
       features: ["Multiple difficulty levels", "Local guide included", "Traditional lunch", "Transportation provided"],
       duration: "Half or full day",
       icon: "🥾",
-      color: "dune"
+      color: "dune",
+      backgroundImage: "hiking.png"
     },
     {
       title: "Cooking Workshops",
@@ -34,7 +38,8 @@ export default function Activities() {
       features: ["Hands-on cooking experience", "Traditional recipes", "Local family hosts", "Market visit included"],
       duration: "3-4 hours",
       icon: "👨‍🍳",
-      color: "gold"
+      color: "gold",
+      backgroundImage: "cooking.png"
     },
     {
       title: "Music & Dance Sessions",
@@ -42,7 +47,8 @@ export default function Activities() {
       features: ["Traditional instruments", "Local musicians", "Interactive sessions", "Cultural stories"],
       duration: "2 hours",
       icon: "🎵",
-      color: "terracotta"
+      color: "terracotta",
+      backgroundImage: "DJ.jpg"
     },
     {
       title: "Evening Fire Camps",
@@ -50,7 +56,8 @@ export default function Activities() {
       features: ["Beachside location", "Traditional mint tea", "Storytelling", "Stargazing"],
       duration: "2-3 hours",
       icon: "🔥",
-      color: "ocean"
+      color: "ocean",
+      backgroundImage: "fire.png"
     }
   ]
 
@@ -72,44 +79,57 @@ export default function Activities() {
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {activities.map((activity, index) => (
-              <div key={activity.title} className="card overflow-hidden group hover:shadow-2xl transition-all duration-300">
-                <div className="p-8">
-                  <div className="flex items-center mb-6">
-                    <div className={`w-16 h-16 rounded-full flex items-center justify-center text-3xl mr-4 ${
-                      activity.color === 'ocean' ? 'bg-ocean/10' :
-                      activity.color === 'terracotta' ? 'bg-terracotta/10' :
-                      activity.color === 'dune' ? 'bg-dune/10' :
-                      activity.color === 'gold' ? 'bg-gold/10' : 'bg-gray-100'
-                    }`}>
-                      {activity.icon}
-                    </div>
-                    <div>
-                      <h3 className="heading-md text-gray-900">{activity.title}</h3>
-                      <p className="text-gray-500 font-medium">{activity.duration}</p>
-                    </div>
+              <div key={activity.title} className="card overflow-hidden group hover:shadow-2xl transition-all duration-300 relative min-h-[500px]">
+                {/* Background Image or Gradient */}
+                {activity.backgroundImage ? (
+                  <div className="absolute inset-0">
+                    <Image
+                      src={`${process.env.NODE_ENV === 'production' ? '/Surf-Hani' : ''}/${activity.backgroundImage}`}
+                      alt={activity.title}
+                      fill
+                      className="object-cover"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-black/30"></div>
                   </div>
-                  
-                  <p className="text-gray-600 mb-6 leading-relaxed">{activity.description}</p>
-                  
-                  <div className="space-y-2 mb-6">
-                    {activity.features.map((feature, featureIndex) => (
-                      <div key={featureIndex} className="flex items-center">
-                        <svg className="w-5 h-5 text-green-500 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                          <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                        </svg>
-                        <span className="text-gray-600">{feature}</span>
+                ) : (
+                  <div className={`absolute inset-0 ${
+                    activity.color === 'ocean' ? 'bg-gradient-to-br from-ocean to-ocean/80' :
+                    activity.color === 'terracotta' ? 'bg-gradient-to-br from-terracotta to-terracotta/80' :
+                    activity.color === 'dune' ? 'bg-gradient-to-br from-dune to-dune/80' :
+                    activity.color === 'gold' ? 'bg-gradient-to-br from-gold to-gold/80' : 'bg-gradient-to-br from-gray-600 to-gray-700'
+                  }`}></div>
+                )}
+
+                {/* Content */}
+                <div className="relative z-10 p-8 h-full flex flex-col justify-between text-white">
+                  <div>
+                    <div className="flex items-center mb-6">
+                      <div className="w-16 h-16 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center text-3xl mr-4">
+                        {activity.icon}
                       </div>
-                    ))}
+                      <div>
+                        <h3 className="heading-md text-white">{activity.title}</h3>
+                        <p className="text-white/80 font-medium">{activity.duration}</p>
+                      </div>
+                    </div>
+                    
+                    <p className="text-white/90 mb-6 leading-relaxed">{activity.description}</p>
+                    
+                    <div className="space-y-2 mb-6">
+                      {activity.features.map((feature, featureIndex) => (
+                        <div key={featureIndex} className="flex items-center">
+                          <svg className="w-5 h-5 text-green-400 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                            <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                          </svg>
+                          <span className="text-white/90">{feature}</span>
+                        </div>
+                      ))}
+                    </div>
                   </div>
                   
                   <Link 
                     href={`/booking?activity=${encodeURIComponent(activity.title)}`}
-                    className={`w-full text-white px-6 py-3 rounded-lg font-medium transition-all duration-300 hover:bg-opacity-90 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-opacity-50 inline-flex items-center justify-center ${
-                      activity.color === 'ocean' ? 'bg-ocean hover:bg-ocean/90 focus:ring-ocean' :
-                      activity.color === 'terracotta' ? 'bg-terracotta hover:bg-terracotta/90 focus:ring-terracotta' :
-                      activity.color === 'dune' ? 'bg-dune hover:bg-dune/90 focus:ring-dune' :
-                      activity.color === 'gold' ? 'bg-gold hover:bg-gold/90 focus:ring-gold' : 'bg-gray-600'
-                    }`}
+                    className="w-full bg-white/20 backdrop-blur-sm text-white px-6 py-3 rounded-lg font-medium transition-all duration-300 hover:bg-white/30 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-white/50 inline-flex items-center justify-center border border-white/30"
                   >
                     Book This Experience
                   </Link>

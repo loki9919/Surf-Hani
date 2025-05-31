@@ -33,7 +33,9 @@ const Features = () => {
       ),
       title: "Expert Surf Instruction",
       description: "Learn from certified local surf instructors who know these breaks like the back of their hand.",
-      color: "ocean"
+      color: "ocean",
+      bgColor: "bg-ocean/10",
+      textColor: "text-ocean"
     },
     {
       icon: (
@@ -43,7 +45,9 @@ const Features = () => {
       ),
       title: "Cozy Accommodation",
       description: "Comfortable rooms with authentic Moroccan design, all just steps from the beach.",
-      color: "terracotta"
+      color: "terracotta",
+      bgColor: "bg-terracotta/10",
+      textColor: "text-terracotta"
     },
     {
       icon: (
@@ -53,54 +57,58 @@ const Features = () => {
       ),
       title: "Cultural Experiences",
       description: "Immerse yourself in local culture through cooking classes, music sessions, and village tours.",
-      color: "gold"
+      color: "gold",
+      bgColor: "bg-gold/10",
+      textColor: "text-gold"
     },
     {
       icon: (
         <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M7 14l5-5 5 5z"/>
+          <path d="M14.5 10.5L12 8L9.5 10.5L12 13L14.5 10.5ZM12 2L2 12L12 22L22 12L12 2ZM12 4.8L19.2 12L12 19.2L4.8 12L12 4.8Z"/>
         </svg>
       ),
       title: "Adventure Activities",
       description: "Horseback riding on the beach, hiking in the Atlas Mountains, and exploring hidden coves.",
-      color: "dune"
+      color: "dune",
+      bgColor: "bg-dune/10",
+      textColor: "text-dune"
     }
   ]
 
   return (
     <section ref={sectionRef} className="section-padding bg-gray-50">
       <div className="max-w-7xl mx-auto">
-        <div className={`text-center mb-16 scroll-fade-in ${isVisible ? 'visible' : ''}`}>
-          <h2 className="heading-lg text-ocean mb-6">
+        <div className={`text-center mb-20 scroll-fade-in ${isVisible ? 'visible' : ''}`}>
+          <h2 className="heading-lg text-ocean mb-8">
             Everything You Need for the
-            <span className="text-terracotta"> Perfect Surf Trip</span>
+            <span className="text-terracotta block lg:inline"> Perfect Surf Trip</span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-body-lg text-gray-600 max-w-4xl mx-auto">
             From beginner-friendly lessons to advanced coaching, cultural immersion to adventure activities—
             we've designed every experience to create lasting memories.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-6">
           {features.map((feature, index) => (
             <div
               key={feature.title}
-              className={`card p-6 text-center scroll-fade-in ${isVisible ? 'visible' : ''}`}
-              style={{ animationDelay: `${index * 0.1}s` }}
+              className={`group card p-8 text-center scroll-fade-in hover:shadow-2xl hover:-translate-y-2 ${isVisible ? 'visible' : ''}`}
+              style={{ animationDelay: `${index * 0.15}s` }}
             >
-              <div className={`w-16 h-16 mx-auto mb-4 rounded-full bg-${feature.color}/10 flex items-center justify-center text-${feature.color}`}>
+              <div className={`w-20 h-20 mx-auto mb-6 rounded-2xl ${feature.bgColor} flex items-center justify-center ${feature.textColor} transition-all duration-300 group-hover:scale-110 group-hover:rotate-3`}>
                 {feature.icon}
               </div>
-              <h3 className="heading-sm text-gray-900 mb-3">{feature.title}</h3>
-              <p className="text-gray-600 leading-relaxed">{feature.description}</p>
+              <h3 className="heading-sm text-gray-900 mb-4">{feature.title}</h3>
+              <p className="text-body-sm text-gray-600 leading-relaxed">{feature.description}</p>
             </div>
           ))}
         </div>
 
-        <div className={`text-center mt-16 scroll-fade-in ${isVisible ? 'visible' : ''}`}>
+        <div className={`text-center mt-20 scroll-fade-in ${isVisible ? 'visible' : ''}`}>
           <Link
             href="/activities"
-            className="btn-primary text-lg px-8 py-4 inline-flex items-center space-x-2"
+            className="btn-primary text-lg px-10 py-5 inline-flex items-center space-x-3 shadow-2xl"
           >
             <span>Explore All Activities</span>
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

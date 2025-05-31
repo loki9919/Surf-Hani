@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -6,7 +6,27 @@
 /* Custom CSS Variables */
 :root {
   --font-inter: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Arial', sans-serif;
-  --font-playfair: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  --font-poppins: 'Poppins', 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Arial', sans-serif;
+  
+  /* Enhanced Typography Scale */
+  --text-xs: 0.75rem;     /* 12px */
+  --text-sm: 0.875rem;    /* 14px */
+  --text-base: 1rem;      /* 16px */
+  --text-lg: 1.125rem;    /* 18px */
+  --text-xl: 1.25rem;     /* 20px */
+  --text-2xl: 1.5rem;     /* 24px */
+  --text-3xl: 1.875rem;   /* 30px */
+  --text-4xl: 2.25rem;    /* 36px */
+  --text-5xl: 3rem;       /* 48px */
+  --text-6xl: 3.75rem;    /* 60px */
+  --text-7xl: 4.5rem;     /* 72px */
+  
+  /* Line Heights */
+  --leading-tight: 1.25;
+  --leading-snug: 1.375;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.625;
+  --leading-loose: 2;
 }
 
 /* Base Styles */
@@ -18,16 +38,20 @@
 
 html {
   scroll-behavior: smooth;
+  font-size: 16px;
 }
 
 body {
   font-family: var(--font-inter);
-  line-height: 1.6;
-  color: #333;
+  line-height: var(--leading-normal);
+  color: #1f2937;
   overflow-x: hidden;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-/* Font Face Declarations for better loading */
+/* Enhanced Font Face Declarations */
 @font-face {
   font-family: 'Inter Fallback';
   src: local('system-ui'), local('-apple-system'), local('BlinkMacSystemFont');
@@ -35,28 +59,56 @@ body {
 }
 
 @font-face {
-  font-family: 'Playfair Fallback';
-  src: local('Georgia'), local('Times New Roman');
+  font-family: 'Poppins Fallback';
+  src: local('Inter'), local('system-ui'), local('-apple-system');
   font-display: swap;
 }
 
-/* Custom Animations */
-@keyframes wave-horizontal {
-  0%, 100% { transform: translateX(-25px); }
-  50% { transform: translateX(25px); }
+/* Enhanced Wave Animations - Smooth and No Glitching */
+@keyframes gentle-wave {
+  0% { 
+    transform: translateX(0px) translateY(0px) translateZ(0);
+  }
+  25% { 
+    transform: translateX(-5px) translateY(-3px) translateZ(0);
+  }
+  50% { 
+    transform: translateX(0px) translateY(-5px) translateZ(0);
+  }
+  75% { 
+    transform: translateX(5px) translateY(-3px) translateZ(0);
+  }
+  100% { 
+    transform: translateX(0px) translateY(0px) translateZ(0);
+  }
 }
 
 @keyframes surfboard-float {
-  0%, 100% { transform: translateY(0px) rotate(-2deg); }
-  50% { transform: translateY(-15px) rotate(2deg); }
+  0%, 100% { 
+    transform: translateY(0px) rotate(-2deg) translateZ(0); 
+  }
+  50% { 
+    transform: translateY(-12px) rotate(2deg) translateZ(0); 
+  }
+}
+
+@keyframes float {
+  0%, 100% { 
+    transform: translateY(0px) translateZ(0); 
+  }
+  50% { 
+    transform: translateY(-15px) translateZ(0); 
+  }
 }
 
 .wave-animation {
-  animation: wave-horizontal 4s ease-in-out infinite;
+  animation: gentle-wave 6s ease-in-out infinite;
+  will-change: transform;
 }
 
 .surfboard-animation {
   animation: surfboard-float 5s ease-in-out infinite;
+  will-change: transform;
 }
 
 /* Scroll-triggered animations */
@@ -93,24 +145,30 @@ body {
   transform: translateX(0);
 }
 
-/* Custom Components */
+/* Enhanced Button Components */
 .btn-primary {
-  @apply bg-terracotta text-white px-6 py-3 rounded-lg font-medium transition-all duration-300 hover:bg-opacity-90 hover:shadow-lg hover:scale-105 focus:outline-none focus:ring-2 focus:ring-terracotta focus:ring-opacity-50;
+  @apply bg-terracotta text-white px-8 py-4 rounded-lg font-medium transition-all duration-300 hover:bg-opacity-90 hover:shadow-xl hover:scale-105 focus:outline-none focus:ring-2 focus:ring-terracotta focus:ring-opacity-50 focus:ring-offset-2;
+  font-family: var(--font-poppins);
+  font-weight: 600;
+  letter-spacing: 0.025em;
 }
 
 .btn-secondary {
-  @apply bg-ocean text-white px-6 py-3 rounded-lg font-medium transition-all duration-300 hover:bg-opacity-90 hover:shadow-lg hover:scale-105 focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-opacity-50;
+  @apply bg-ocean text-white px-8 py-4 rounded-lg font-medium transition-all duration-300 hover:bg-opacity-90 hover:shadow-xl hover:scale-105 focus:outline-none focus:ring-2 focus:ring-ocean focus:ring-opacity-50 focus:ring-offset-2;
+  font-family: var(--font-poppins);
+  font-weight: 600;
+  letter-spacing: 0.025em;
 }
 
 .card {
-  @apply bg-white rounded-lg shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl hover:scale-105;
+  @apply bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-2xl hover:scale-[1.02];
 }
 
 .section-padding {
-  @apply py-16 px-4 sm:px-6 lg:px-8;
+  @apply py-20 px-4 sm:px-6 lg:px-8;
 }
 
-/* Gradient backgrounds */
+/* Enhanced Gradient backgrounds */
 .gradient-sunset {
   background: linear-gradient(135deg, #ef8e2f 0%, #be4f34 100%);
 }
@@ -119,19 +177,76 @@ body {
   background: linear-gradient(135deg, #006c79 0%, #004d56 100%);
 }
 
-/* Typography */
+/* Enhanced Typography Classes */
 .heading-xl {
-  @apply text-4xl sm:text-5xl lg:text-6xl font-bold font-serif;
+  font-family: var(--font-poppins);
+  font-size: clamp(2.5rem, 8vw, 4.5rem);
+  font-weight: 800;
+  line-height: var(--leading-tight);
+  letter-spacing: -0.02em;
 }
 
 .heading-lg {
-  @apply text-3xl sm:text-4xl lg:text-5xl font-bold font-serif;
+  font-family: var(--font-poppins);
+  font-size: clamp(2rem, 6vw, 3.5rem);
+  font-weight: 700;
+  line-height: var(--leading-tight);
+  letter-spacing: -0.01em;
 }
 
 .heading-md {
-  @apply text-2xl sm:text-3xl font-bold font-serif;
+  font-family: var(--font-poppins);
+  font-size: clamp(1.5rem, 4vw, 2.25rem);
+  font-weight: 600;
+  line-height: var(--leading-snug);
+  letter-spacing: -0.01em;
 }
 
 .heading-sm {
-  @apply text-xl sm:text-2xl font-semibold;
+  font-family: var(--font-poppins);
+  font-size: clamp(1.25rem, 3vw, 1.875rem);
+  font-weight: 600;
+  line-height: var(--leading-snug);
+}
+
+.text-body-lg {
+  font-family: var(--font-inter);
+  font-size: clamp(1.125rem, 2.5vw, 1.25rem);
+  font-weight: 400;
+  line-height: var(--leading-relaxed);
+}
+
+.text-body {
+  font-family: var(--font-inter);
+  font-size: clamp(1rem, 2vw, 1.125rem);
+  font-weight: 400;
+  line-height: var(--leading-normal);
+}
+
+.text-body-sm {
+  font-family: var(--font-inter);
+  font-size: clamp(0.875rem, 1.8vw, 1rem);
+  font-weight: 400;
+  line-height: var(--leading-normal);
+}
+
+/* Mobile-specific typography improvements */
+@media (max-width: 640px) {
+  html {
+    font-size: 14px;
+  }
+  
+  .btn-primary,
+  .btn-secondary {
+    @apply px-6 py-3 text-base;
+  }
+  
+  .section-padding {
+    @apply py-12 px-4;
+  }
+  
+  /* Mobile hero adjustments */
+  .heading-xl {
+    font-size: clamp(2rem, 12vw, 3rem);
+  }
 } 

@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import Image from 'next/image'
 
 export default function About() {
   return (
@@ -46,10 +47,16 @@ export default function About() {
             </div>
 
             <div className="relative">
-              <div className="w-full h-96 bg-gradient-to-br from-gold to-terracotta rounded-lg overflow-hidden">
-                <div className="w-full h-full bg-gray-300 flex items-center justify-center">
-                  <span className="text-gray-500 text-lg">Founder Story Photo</span>
-                </div>
+              <div className="w-full h-96 rounded-lg overflow-hidden shadow-2xl relative">
+                <Image
+                  src={`${process.env.NODE_ENV === 'production' ? '/Surf-Hani' : ''}/Founder_Story.png`}
+                  alt="Founder Story - The beginning of The Cove Surf House"
+                  fill
+                  className="object-cover"
+                />
+                
+                {/* Optional overlay for better visual effect */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent"></div>
               </div>
               <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-ocean/10 rounded-full"></div>
             </div>
@@ -123,24 +130,68 @@ export default function About() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {/* Team Member Placeholders */}
-            {[1, 2, 3, 4, 5, 6].map((member) => (
-              <div key={member} className="card overflow-hidden">
-                <div className="w-full h-64 bg-gradient-to-br from-ocean to-gold">
-                  <div className="w-full h-full bg-gray-300 flex items-center justify-center">
-                    <span className="text-gray-500">Team Photo {member}</span>
-                  </div>
-                </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-semibold text-gray-900 mb-2">Team Member {member}</h3>
-                  <p className="text-terracotta font-medium mb-3">Role Title</p>
-                  <p className="text-gray-600">
-                    Brief bio and background information will be added here. 
-                    Each team member brings unique skills and local knowledge.
-                  </p>
-                </div>
+            {/* Surfing Team Member */}
+            <div className="card overflow-hidden">
+              <div className="w-full h-64 relative">
+                <Image
+                  src={`${process.env.NODE_ENV === 'production' ? '/Surf-Hani' : ''}/surfing_team.png`}
+                  alt="Surfing Instructor - Expert local surf guide"
+                  fill
+                  className="object-cover"
+                />
               </div>
-            ))}
+              <div className="p-6">
+                <h3 className="text-xl font-semibold text-gray-900 mb-2">Surf Instructor</h3>
+                <p className="text-terracotta font-medium mb-3">Lead Surf Instructor</p>
+                <p className="text-gray-600">
+                  Born and raised in Tamraght, our lead instructor has been surfing these waters for over 15 years. 
+                  Deep knowledge of local breaks and passion for teaching makes the perfect guide 
+                  for surfers of all levels.
+                </p>
+              </div>
+            </div>
+
+            {/* Cooking Team Member */}
+            <div className="card overflow-hidden">
+              <div className="w-full h-64 relative">
+                <Image
+                  src={`${process.env.NODE_ENV === 'production' ? '/Surf-Hani' : ''}/cooking_team.png`}
+                  alt="Cooking Instructor - Traditional Moroccan cuisine expert"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+              <div className="p-6">
+                <h3 className="text-xl font-semibold text-gray-900 mb-2">Cooking Expert</h3>
+                <p className="text-terracotta font-medium mb-3">Culinary Expert</p>
+                <p className="text-gray-600">
+                  Our culinary expert comes from a family of traditional Moroccan cooks. She shares authentic 
+                  recipes passed down through generations, teaching guests the art of tagine, 
+                  couscous, and other local specialties.
+                </p>
+              </div>
+            </div>
+
+            {/* Horseback Riding Team Member */}
+            <div className="card overflow-hidden">
+              <div className="w-full h-64 relative">
+                <Image
+                  src={`${process.env.NODE_ENV === 'production' ? '/Surf-Hani' : ''}/horsing_team.png`}
+                  alt="Horseback Riding Guide - Expert equestrian and local guide"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+              <div className="p-6">
+                <h3 className="text-xl font-semibold text-gray-900 mb-2">Riding Guide</h3>
+                <p className="text-terracotta font-medium mb-3">Horseback Riding Guide</p>
+                <p className="text-gray-600">
+                  Our riding guide has been working with horses since childhood and knows every trail from 
+                  the beach to the Atlas Mountains. A gentle approach ensures both beginners 
+                  and experienced riders feel comfortable and safe.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
