@@ -157,27 +157,6 @@ const Hero = () => {
               </svg>
             </Link>
           </div>
-
-          {/* Additional Features Highlight */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
-            {[
-              { icon: "🏄‍♂️", title: "Surf Lessons", desc: "Expert instructors" },
-              { icon: "🏨", title: "Cozy Hostel", desc: "Comfortable stays" },
-              { icon: "🌅", title: "Ocean Views", desc: "Breathtaking sunsets" }
-            ].map((feature, index) => (
-              <div
-                key={index}
-                className={`bg-white/10 backdrop-blur-sm rounded-xl p-6 text-white transition-all duration-700 ${
-                  isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-                }`}
-                style={{ transitionDelay: `${(index + 1) * 200}ms` }}
-              >
-                <div className="text-3xl mb-3">{feature.icon}</div>
-                <h3 className="heading-sm mb-2">{feature.title}</h3>
-                <p className="text-body-sm text-white/80">{feature.desc}</p>
-              </div>
-            ))}
-          </div>
         </div>
       </div>
     </section>
