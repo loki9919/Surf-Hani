@@ -26,9 +26,9 @@ export const metadata: Metadata = {
   keywords: 'surf hostel, Morocco, Tamraght, surf lessons, beach hostel, surfing, Morocco travel',
   authors: [{ name: 'The Cove Surf House' }],
   icons: {
-    icon: '/logo.png',
-    shortcut: '/logo.png',
-    apple: '/logo.png',
+    icon: process.env.NODE_ENV === 'production' ? '/Surf-Hani/logo.png' : '/logo.png',
+    shortcut: process.env.NODE_ENV === 'production' ? '/Surf-Hani/logo.png' : '/logo.png',
+    apple: process.env.NODE_ENV === 'production' ? '/Surf-Hani/logo.png' : '/logo.png',
   },
   openGraph: {
     title: 'The Cove Surf House | Beach & Surf Lifestyle Hostel',
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
     locale: 'en_US',
     images: [
       {
-        url: '/logo.png',
+        url: process.env.NODE_ENV === 'production' ? '/Surf-Hani/logo.png' : '/logo.png',
         width: 800,
         height: 600,
         alt: 'The Cove Surf House Logo',
@@ -48,7 +48,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'The Cove Surf House | Beach & Surf Lifestyle Hostel',
     description: 'Experience the ultimate beach and surf lifestyle in Tamraght, Morocco',
-    images: ['/logo.png'],
+    images: [process.env.NODE_ENV === 'production' ? '/Surf-Hani/logo.png' : '/logo.png'],
   },
   robots: {
     index: true,
