@@ -1,23 +1,23 @@
 import type { Metadata } from 'next'
-import { Inter, Poppins } from 'next/font/google'
+import { Nunito, Comfortaa } from 'next/font/google'
 import './globals.css'
 import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
 
-const inter = Inter({ 
+const nunito = Nunito({ 
   subsets: ['latin'],
-  variable: '--font-inter',
-  weight: ['300', '400', '500', '600', '700', '800'],
+  variable: '--font-nunito',
+  weight: ['300', '400', '500', '600', '700', '800', '900'],
   display: 'swap',
   fallback: ['system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Arial', 'sans-serif'],
 })
 
-const poppins = Poppins({ 
+const comfortaa = Comfortaa({ 
   subsets: ['latin'],
-  variable: '--font-poppins',
-  weight: ['300', '400', '500', '600', '700', '800', '900'],
+  variable: '--font-comfortaa',
+  weight: ['300', '400', '500', '600', '700'],
   display: 'swap',
-  fallback: ['Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Arial', 'sans-serif'],
+  fallback: ['Nunito', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Arial', 'sans-serif'],
 })
 
 export const metadata: Metadata = {
@@ -67,11 +67,11 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
-          href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800;900&family=Comfortaa:wght@300;400;500;600;700&display=swap"
           rel="stylesheet"
         />
       </head>
-      <body className={`${inter.variable} ${poppins.variable} font-sans antialiased`}>
+      <body className={`${nunito.variable} ${comfortaa.variable} font-sans antialiased`}>
         <Navigation />
         <main className="min-h-screen">
           {children}

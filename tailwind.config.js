@@ -15,8 +15,8 @@ module.exports = {
         white: '#FFFFFF',
       },
       fontFamily: {
-        sans: ['Inter', 'Inter Fallback', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Arial', 'sans-serif'],
-        display: ['Poppins', 'Poppins Fallback', 'Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Arial', 'sans-serif'],
+        sans: ['Nunito', 'Nunito Fallback', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Arial', 'sans-serif'],
+        display: ['Comfortaa', 'Comfortaa Fallback', 'Nunito', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Arial', 'sans-serif'],
         serif: ['Georgia', 'Times New Roman', 'serif'],
       },
       fontSize: {
