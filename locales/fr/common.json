@@ -1,0 +1,160 @@
+{
+  "navigation": {
+    "home": "Accueil",
+    "about": "À Propos",
+    "activities": "Activités", 
+    "gallery": "Galerie",
+    "booking": "Réservation"
+  },
+  "hero": {
+    "title": "Bienvenue à The Cove",
+    "subtitle": "Surf House",
+    "description": "Vivez l'expérience ultime du surf et de la plage au cœur de Tamraght, Maroc. Où l'aventure rencontre le confort.",
+    "cta": "Réservez Votre Séjour"
+  },
+  "intro": {
+    "title": "Votre Porte d'Entrée vers",
+    "subtitle": "la Culture Surf Marocaine",
+    "description1": "Niché dans le charmant village côtier de Tamraght, The Cove Surf House offre plus qu'un simple hébergement—c'est votre portail vers des expériences marocaines authentiques et du surf de classe mondiale.",
+    "description2": "Des sessions de surf au lever du soleil aux ateliers de cuisine traditionnelle de tagine, chaque moment ici est conçu pour vous connecter avec l'océan, la culture et vous-même.",
+    "features": {
+      "oceanFront": {
+        "title": "Vue sur l'Océan",
+        "description": "À quelques pas des spots de surf parfaits"
+      },
+      "localExperiences": {
+        "title": "Expériences Locales", 
+        "description": "Immersion culturelle authentique"
+      },
+      "allSkillLevels": {
+        "title": "Tous Niveaux",
+        "description": "Cours de surf du débutant à l'avancé"
+      },
+      "primeLocation": {
+        "title": "Emplacement Privilégié",
+        "description": "Au cœur du village de Tamraght"
+      }
+    },
+    "imageCaption": {
+      "title": "Plage de Tamraght",
+      "description": "Des vagues parfaites, toute l'année"
+    }
+  },
+  "features": {
+    "title": "Pourquoi Choisir The Cove?",
+    "surfLessons": {
+      "title": "Cours de Surf Professionnels",
+      "description": "Apprenez avec des instructeurs locaux expérimentés dans des conditions parfaites"
+    },
+    "accommodation": {
+      "title": "Hébergement Confortable", 
+      "description": "Détendez-vous dans nos chambres douillettes conçues pour les surfeurs et voyageurs"
+    },
+    "localCulture": {
+      "title": "Culture Locale Authentique",
+      "description": "Immergez-vous dans les traditions et l'hospitalité marocaines"
+    }
+  },
+  "footer": {
+    "description": "Votre porte d'entrée vers la culture surf marocaine authentique dans le magnifique Tamraght.",
+    "contact": {
+      "title": "Contact",
+      "phone": "+212 6 23789348",
+      "email": "hello@thecovemorocco.com",
+      "location": "Tamraght, Agadir, Maroc"
+    },
+    "quickLinks": {
+      "title": "Liens Rapides",
+      "home": "Accueil",
+      "about": "À Propos", 
+      "activities": "Activités",
+      "gallery": "Galerie",
+      "booking": "Réserver Maintenant"
+    },
+    "followUs": {
+      "title": "Suivez-Nous"
+    },
+    "copyright": "© 2024 The Cove Surf House. Tous droits réservés."
+  },
+  "about": {
+    "hero": {
+      "title": "À Propos de The Cove",
+      "subtitle": "Votre Aventure Surf Marocaine Commence Ici"
+    },
+    "story": {
+      "title": "Notre Histoire",
+      "description": "Fondée avec une passion pour le surf et la culture marocaine, The Cove Surf House est plus qu'un simple hébergement—c'est une porte d'entrée vers des expériences authentiques."
+    },
+    "founder": {
+      "title": "Rencontrez Notre Fondateur",
+      "description": "Passionné par le surf et la culture marocaine, notre fondateur a créé The Cove pour partager la magie de Tamraght avec les voyageurs du monde entier."
+    },
+    "team": {
+      "title": "Notre Équipe",
+      "surfing": {
+        "title": "Équipe de Surf",
+        "description": "Nos instructeurs de surf expérimentés sont passionnés par le partage de leur amour pour l'océan et vous aident à attraper la vague parfaite."
+      },
+      "cooking": {
+        "title": "Équipe de Cuisine", 
+        "description": "Nos chefs talentueux vous apportent des saveurs marocaines authentiques et des ingrédients locaux frais dans chaque repas."
+      },
+      "horseback": {
+        "title": "Équipe d'Équitation",
+        "description": "Découvrez la beauté de la côte et de la campagne marocaines avec nos guides d'équitation expérimentés."
+      }
+    }
+  },
+  "activities": {
+    "hero": {
+      "title": "Activités & Expériences",
+      "subtitle": "L'Aventure Vous Attend à Chaque Tournant"
+    },
+    "surfing": {
+      "title": "Cours de Surf",
+      "description": "Instruction de surf professionnelle pour tous niveaux"
+    },
+    "horseback": {
+      "title": "Équitation", 
+      "description": "Balades panoramiques le long de la magnifique côte"
+    },
+    "hiking": {
+      "title": "Randonnées",
+      "description": "Explorez les magnifiques paysages montagneux du Maroc"
+    },
+    "cooking": {
+      "title": "Cours de Cuisine",
+      "description": "Apprenez à cuisiner la cuisine marocaine authentique"
+    },
+    "musicDance": {
+      "title": "Musique & Danse",
+      "description": "Découvrez la culture traditionnelle marocaine"
+    },
+    "fishing": {
+      "title": "Sorties de Pêche",
+      "description": "Pêche traditionnelle avec les pêcheurs locaux"
+    }
+  },
+  "gallery": {
+    "hero": {
+      "title": "Galerie",
+      "subtitle": "Moments du Paradis"
+    }
+  },
+  "booking": {
+    "hero": {
+      "title": "Réservez Votre Séjour",
+      "subtitle": "Sécurisez Votre Aventure Marocaine"
+    },
+    "form": {
+      "name": "Nom Complet",
+      "email": "Adresse Email",
+      "phone": "Numéro de Téléphone",
+      "checkin": "Date d'Arrivée",
+      "checkout": "Date de Départ", 
+      "guests": "Nombre d'Invités",
+      "message": "Demandes Spéciales",
+      "submit": "Réserver Maintenant"
+    }
+  }
+} 

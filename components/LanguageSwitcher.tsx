@@ -1,0 +1,57 @@
+'use client'
+
+import { useState, useEffect } from 'react'
+import useTranslation from '@/hooks/useTranslation'
+
+const LanguageSwitcher = () => {
+  const { locale, changeLanguage, isLoading } = useTranslation()
+  const [isMounted, setIsMounted] = useState(false)
+
+  useEffect(() => {
+    setIsMounted(true)
+  }, [])
+
+  const handleToggle = () => {
+    const newLocale = locale === 'en' ? 'fr' : 'en'
+    changeLanguage(newLocale)
+  }
+
+  if (!isMounted) {
+    return (
+      <div className="w-16 h-8 bg-white/20 rounded-full"></div>
+    )
+  }
+
+  return (
+    <button
+      onClick={handleToggle}
+      disabled={isLoading}
+      className="relative inline-flex h-8 w-16 items-center rounded-full bg-white/20 backdrop-blur-sm border border-white/30 transition-all duration-300 hover:bg-white/30 focus:outline-none focus:ring-2 focus:ring-white/50 focus:ring-offset-2 focus:ring-offset-transparent disabled:opacity-50"
+      role="switch"
+      aria-checked={locale === 'fr'}
+      aria-label="Toggle language"
+    >
+      {/* Sliding indicator */}
+      <div className={`absolute top-1 bottom-1 w-6 rounded-full bg-white shadow-lg transition-all duration-300 ease-in-out ${
+        locale === 'fr' ? 'left-9' : 'left-1'
+      }`}>
+      </div>
+
+      {/* Left label - EN */}
+      <span className={`absolute left-2 text-xs font-bold font-comfortaa transition-all duration-300 ${
+        locale === 'en' ? 'text-gray-800' : 'text-white/80'
+      }`}>
+        EN
+      </span>
+
+      {/* Right label - FR */}
+      <span className={`absolute right-2 text-xs font-bold font-comfortaa transition-all duration-300 ${
+        locale === 'fr' ? 'text-gray-800' : 'text-white/80'
+      }`}>
+        FR
+      </span>
+    </button>
+  )
+}
+
+export default LanguageSwitcher 

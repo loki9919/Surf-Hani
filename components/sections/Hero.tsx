@@ -4,13 +4,22 @@ import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import Logo from '@/components/Logo'
+import useTranslation from '@/hooks/useTranslation'
 
 const Hero = () => {
   const [isVisible, setIsVisible] = useState(false)
+  const { t, locale, isLoading } = useTranslation()
 
   useEffect(() => {
     setIsVisible(true)
   }, [])
+
+  // Debug logging
+  useEffect(() => {
+    console.log('Hero - Current locale:', locale)
+    console.log('Hero - Is loading:', isLoading)
+    console.log('Hero - Title translation:', t('hero.title'))
+  }, [locale, isLoading, t])
 
   return (
     <section className="relative h-screen flex items-center justify-center overflow-hidden">
@@ -155,15 +164,14 @@ const Hero = () => {
           </div>
 
           <h1 className="heading-xl text-white mb-6 drop-shadow-2xl max-w-4xl mx-auto">
-            Where Ocean Meets
+            {t('hero.title')}
             <span className="block text-gold bg-gradient-to-r from-gold to-terracotta bg-clip-text text-transparent font-black">
-              Adventure
+              {t('hero.subtitle')}
             </span>
           </h1>
           
           <p className="text-body-lg text-white/95 mb-8 max-w-3xl mx-auto drop-shadow-lg">
-            Discover your perfect wave at The Cove Surf House. Experience authentic Moroccan coastal culture, 
-            world-class surf breaks, and unforgettable adventures in the heart of Tamraght.
+            {t('hero.description')}
           </p>
 
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
@@ -171,7 +179,7 @@ const Hero = () => {
               href="/booking"
               className="btn-primary text-lg px-10 py-5 inline-flex items-center space-x-3 shadow-2xl transform transition-all duration-300 hover:shadow-terracotta/25"
             >
-              <span>Book Your Stay</span>
+              <span>{t('hero.cta')}</span>
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
               </svg>
@@ -181,7 +189,7 @@ const Hero = () => {
               href="/activities"
               className="btn-secondary text-lg px-10 py-5 inline-flex items-center space-x-3 shadow-2xl transform transition-all duration-300 hover:shadow-ocean/25"
             >
-              <span>Explore Activities</span>
+              <span>{t('navigation.activities')}</span>
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
               </svg>

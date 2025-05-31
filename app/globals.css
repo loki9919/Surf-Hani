@@ -111,6 +111,11 @@ body {
   will-change: transform;
 }
 
+/* Language Switcher Animation */
+.animate-fadeInUp {
+  animation: fadeInUp 0.2s ease-out;
+}
+
 /* Scroll-triggered animations */
 .scroll-fade-in {
   opacity: 0;

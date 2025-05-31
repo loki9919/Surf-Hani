@@ -2,10 +2,12 @@
 
 import { useEffect, useRef, useState } from 'react'
 import Image from 'next/image'
+import useTranslation from '@/hooks/useTranslation'
 
 const Intro = () => {
   const [isVisible, setIsVisible] = useState(false)
   const sectionRef = useRef<HTMLDivElement>(null)
+  const { t } = useTranslation()
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -31,19 +33,16 @@ const Intro = () => {
           {/* Enhanced Text Content */}
           <div className={`scroll-fade-in ${isVisible ? 'visible' : ''}`}>
             <h2 className="heading-lg text-ocean mb-8">
-              Your Gateway to
-              <span className="text-terracotta block"> Moroccan Surf Culture</span>
+              {t('intro.title')}
+              <span className="text-terracotta block">{t('intro.subtitle')}</span>
             </h2>
             
             <p className="text-body-lg text-gray-600 mb-6">
-              Nestled in the charming coastal village of Tamraght, The Cove Surf House offers 
-              more than just accommodation—it's your portal to authentic Moroccan experiences 
-              and world-class surfing.
+              {t('intro.description1')}
             </p>
             
             <p className="text-body text-gray-600 mb-10">
-              From sunrise surf sessions to traditional tagine cooking workshops, every moment 
-              here is designed to connect you with the ocean, the culture, and yourself.
+              {t('intro.description2')}
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
@@ -54,8 +53,8 @@ const Intro = () => {
                   </svg>
                 </div>
                 <div>
-                  <h3 className="heading-sm text-gray-900 mb-2">Ocean Front Location</h3>
-                  <p className="text-body-sm text-gray-600">Steps from perfect surf breaks</p>
+                  <h3 className="heading-sm text-gray-900 mb-2">{t('intro.features.oceanFront.title')}</h3>
+                  <p className="text-body-sm text-gray-600">{t('intro.features.oceanFront.description')}</p>
                 </div>
               </div>
 
@@ -66,8 +65,8 @@ const Intro = () => {
                   </svg>
                 </div>
                 <div>
-                  <h3 className="heading-sm text-gray-900 mb-2">Local Experiences</h3>
-                  <p className="text-body-sm text-gray-600">Authentic cultural immersion</p>
+                  <h3 className="heading-sm text-gray-900 mb-2">{t('intro.features.localExperiences.title')}</h3>
+                  <p className="text-body-sm text-gray-600">{t('intro.features.localExperiences.description')}</p>
                 </div>
               </div>
 
@@ -78,8 +77,8 @@ const Intro = () => {
                   </svg>
                 </div>
                 <div>
-                  <h3 className="heading-sm text-gray-900 mb-2">All Skill Levels</h3>
-                  <p className="text-body-sm text-gray-600">Beginner to advanced surf lessons</p>
+                  <h3 className="heading-sm text-gray-900 mb-2">{t('intro.features.allSkillLevels.title')}</h3>
+                  <p className="text-body-sm text-gray-600">{t('intro.features.allSkillLevels.description')}</p>
                 </div>
               </div>
 
@@ -91,8 +90,8 @@ const Intro = () => {
                   </svg>
                 </div>
                 <div>
-                  <h3 className="heading-sm text-gray-900 mb-2">Prime Location</h3>
-                  <p className="text-body-sm text-gray-600">Heart of Tamraght village</p>
+                  <h3 className="heading-sm text-gray-900 mb-2">{t('intro.features.primeLocation.title')}</h3>
+                  <p className="text-body-sm text-gray-600">{t('intro.features.primeLocation.description')}</p>
                 </div>
               </div>
             </div>
@@ -117,8 +116,8 @@ const Intro = () => {
                 {/* Enhanced bottom overlay with Tamraght Beach info */}
                 <div className="absolute bottom-6 left-6 right-6">
                   <div className="bg-white/20 backdrop-blur-sm rounded-xl p-4">
-                    <h4 className="text-white font-bold text-lg mb-2">Tamraght Beach</h4>
-                    <p className="text-white/90 text-sm">Perfect waves, all year round</p>
+                    <h4 className="text-white font-bold text-lg mb-2">{t('intro.imageCaption.title')}</h4>
+                    <p className="text-white/90 text-sm">{t('intro.imageCaption.description')}</p>
                   </div>
                 </div>
               </div>

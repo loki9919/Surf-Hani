@@ -3,10 +3,13 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import Logo from './Logo'
+import LanguageSwitcher from './LanguageSwitcher'
+import useTranslation from '@/hooks/useTranslation'
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
+  const { t } = useTranslation()
 
   useEffect(() => {
     const handleScroll = () => {
@@ -17,10 +20,10 @@ const Navigation = () => {
   }, [])
 
   const navItems = [
-    { href: '/', label: 'Home' },
-    { href: '/about', label: 'About' },
-    { href: '/activities', label: 'Activities' },
-    { href: '/gallery', label: 'Gallery' },
+    { href: '/', label: t('navigation.home') },
+    { href: '/about', label: t('navigation.about') },
+    { href: '/activities', label: t('navigation.activities') },
+    { href: '/gallery', label: t('navigation.gallery') },
   ]
 
   return (
@@ -46,11 +49,13 @@ const Navigation = () => {
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-terracotta transition-all duration-300 group-hover:w-full"></span>
               </Link>
             ))}
+            {/* Language Switcher */}
+            <LanguageSwitcher />
             <Link
               href="/booking"
               className="btn-primary"
             >
-              Book Now
+              {t('navigation.booking')}
             </Link>
           </div>
 
@@ -84,12 +89,16 @@ const Navigation = () => {
                   {item.label}
                 </Link>
               ))}
+              {/* Mobile Language Switcher */}
+              <div className="px-4 py-3">
+                <LanguageSwitcher />
+              </div>
               <Link
                 href="/booking"
                 className="block w-full text-center px-4 py-3 bg-terracotta text-white rounded-lg hover:bg-opacity-90 transition-all duration-200 font-medium font-display mt-4"
                 onClick={() => setIsOpen(false)}
               >
-                Book Now
+                {t('navigation.booking')}
               </Link>
             </div>
           </div>
