@@ -1,12 +1,11 @@
-import type { Metadata } from 'next'
-import Image from 'next/image'
+'use client'
 
-export const metadata: Metadata = {
-  title: 'Gallery | The Cove Surf House',
-  description: 'Explore our photo gallery showcasing life at The Cove Surf House in Tamraght, Morocco.',
-}
+import Image from 'next/image'
+import useTranslation from '@/hooks/useTranslation'
 
 export default function Gallery() {
+  const { t } = useTranslation()
+
   // Gallery images - numbered ones first, then others
   const galleryImages = [
     { src: '2.png', alt: 'Life at The Cove Surf House' },
@@ -27,9 +26,9 @@ export default function Gallery() {
     <div className="pt-16">
       <section className="section-padding bg-gradient-to-br from-ocean to-terracotta text-white">
         <div className="max-w-4xl mx-auto text-center">
-          <h1 className="heading-xl mb-6">Gallery</h1>
+          <h1 className="heading-xl mb-6">{t('gallery.hero.title')}</h1>
           <p className="text-xl leading-relaxed">
-            Discover the beauty of life at The Cove Surf House through our photo gallery.
+            {t('gallery.hero.description')}
           </p>
         </div>
       </section>
@@ -37,15 +36,15 @@ export default function Gallery() {
       <section className="section-padding bg-white">
         <div className="max-w-4xl mx-auto text-center">
           <div className="card p-8">
-            <h2 className="heading-md text-ocean mb-4">Follow Our Journey</h2>
+            <h2 className="heading-md text-ocean mb-4">{t('gallery.instagram.title')}</h2>
             <p className="text-gray-600 mb-6">
-              For the latest photos, follow us on Instagram @thecovesurfhouse
+              {t('gallery.instagram.description')}
             </p>
             <a
               href="https://instagram.com/thecovesurfhouse"
               className="btn-primary"
             >
-              View on Instagram
+              {t('gallery.instagram.button')}
             </a>
           </div>
         </div>
@@ -53,7 +52,7 @@ export default function Gallery() {
 
       <section className="section-padding bg-gray-50">
         <div className="max-w-7xl mx-auto">
-          <h2 className="heading-lg text-ocean mb-12 text-center">Photo Gallery</h2>
+          <h2 className="heading-lg text-ocean mb-12 text-center">{t('gallery.photoGallery.title')}</h2>
           
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {galleryImages.map((image, i) => (

@@ -4,19 +4,31 @@
     "about": "About",
     "activities": "Activities", 
     "gallery": "Gallery",
-    "booking": "Booking"
+    "booking": "Contact",
+    "book": "Book Now"
   },
   "hero": {
-    "title": "Welcome to The Cove",
-    "subtitle": "Surf House",
-    "description": "Experience the ultimate beach and surf lifestyle in the heart of Tamraght, Morocco. Where adventure meets comfort.",
+    "title": "Surf, Stay & Discover",
+    "subtitle": "The Cove Surf House",
+    "description": "Experience the perfect blend of adventure and comfort at Morocco's premier surf hostel. From world-class waves to authentic cultural exchanges, your unforgettable journey starts here.",
     "cta": "Book Your Stay"
   },
   "intro": {
-    "title": "Your Gateway to",
-    "subtitle": "Moroccan Surf Culture",
-    "description1": "Nestled in the charming coastal village of Tamraght, The Cove Surf House offers more than just accommodation—it's your portal to authentic Moroccan experiences and world-class surfing.",
-    "description2": "From sunrise surf sessions to traditional tagine cooking workshops, every moment here is designed to connect you with the ocean, the culture, and yourself.",
+    "title": "Welcome to Paradise",
+    "subtitle": "Where Waves Meet Culture",
+    "description": "Nestled between the Atlantic Ocean and the Atlas Mountains, The Cove Surf House offers more than just accommodation – we provide authentic Moroccan experiences that connect you with local culture, incredible surf, and memories that last a lifetime.",
+    "experience1": {
+      "title": "World-Class Surfing",
+      "description": "Ride perfect Atlantic swells with expert local instructors on Morocco's most consistent breaks."
+    },
+    "experience2": {
+      "title": "Cultural Immersion",
+      "description": "Learn traditional cooking, explore local markets, and connect with the warm Berber community."
+    },
+    "experience3": {
+      "title": "Adventure Activities",
+      "description": "From horseback riding to mountain hiking, discover the diverse landscapes of Morocco."
+    },
     "features": {
       "oceanFront": {
         "title": "Ocean Front Location",
@@ -41,120 +53,212 @@
     }
   },
   "features": {
-    "title": "Why Choose The Cove?",
+    "title": "Everything You Need for the Perfect Surf Trip",
+    "description": "From beginner-friendly lessons to advanced coaching, cultural immersion to adventure activities—we've designed every experience to create lasting memories.",
+    "cta": "Explore All Activities",
     "surfLessons": {
-      "title": "Professional Surf Lessons",
-      "description": "Learn from experienced local instructors in perfect conditions"
+      "title": "Expert Surf Instruction",
+      "description": "Learn from certified local surf instructors who know these breaks like the back of their hand."
     },
     "accommodation": {
-      "title": "Comfortable Accommodation", 
-      "description": "Relax in our cozy rooms designed for surfers and travelers"
+      "title": "Cozy Accommodation", 
+      "description": "Comfortable rooms with authentic Moroccan design, all just steps from the beach."
     },
     "localCulture": {
-      "title": "Authentic Local Culture",
-      "description": "Immerse yourself in Moroccan traditions and hospitality"
+      "title": "Cultural Experiences",
+      "description": "Immerse yourself in local culture through cooking classes, music sessions, and village tours."
+    }
+  },
+  "cta": {
+    "title": "Ready to Experience",
+    "subtitle": "The Ocean's Call?",
+    "description": "Your perfect surf adventure awaits in Tamraght. Book your stay today and become part of our growing family of ocean lovers and culture enthusiasts.",
+    "bookButton": "Book Your Adventure",
+    "galleryButton": "View Gallery",
+    "stats": {
+      "guests": {
+        "number": "100+",
+        "label": "Happy Guests"
+      },
+      "rating": {
+        "number": "5★",
+        "label": "Average Rating"
+      },
+      "support": {
+        "number": "24/7",
+        "label": "Support Available"
+      }
     }
   },
   "footer": {
-    "description": "Your gateway to authentic Moroccan surf culture in beautiful Tamraght.",
-    "contact": {
-      "title": "Contact",
-      "phone": "+212 6 23789348",
-      "email": "hello@thecovemorocco.com",
-      "location": "Tamraght, Agadir, Morocco"
-    },
+    "description": "Your gateway to authentic Moroccan surf experiences. Join our community and discover the perfect blend of adventure, culture, and comfort.",
     "quickLinks": {
       "title": "Quick Links",
-      "home": "Home",
-      "about": "About Us", 
+      "about": "About",
       "activities": "Activities",
       "gallery": "Gallery",
-      "booking": "Book Now"
+      "booking": "Booking"
     },
-    "followUs": {
-      "title": "Follow Us"
+    "contact": {
+      "title": "Contact Info",
+      "location": "Tamraght, Agadir, Morocco",
+      "email": "hello@thecovemorocco.com",
+      "phone": "+212 623 789 348"
     },
     "copyright": "© 2024 The Cove Surf House. All rights reserved."
   },
   "about": {
     "hero": {
-      "title": "About The Cove",
-      "subtitle": "Your Moroccan Surf Adventure Begins Here"
+      "title": "Our Story",
+      "description": "Born from a passion for the ocean and a deep love for Moroccan culture, The Cove Surf House is more than just a place to stay—it's a gateway to authentic experiences."
     },
     "story": {
-      "title": "Our Story",
-      "description": "Founded with a passion for surfing and Moroccan culture, The Cove Surf House is more than just accommodation—it's a gateway to authentic experiences."
+      "title": "Where It All Began",
+      "paragraph1": "It started with a simple dream: to create a space where surfers from around the world could experience the raw beauty of Morocco's Atlantic coast while connecting deeply with local culture and community.",
+      "paragraph2": "Nestled in the heart of Tamraght, a small fishing village that has become one of Morocco's premier surf destinations, The Cove Surf House was founded by a group of passionate surfers and local community members who saw the potential to bridge cultures through shared ocean experiences.",
+      "paragraph3": "What makes us different is our commitment to authenticity. We're not just a hostel—we're a cultural exchange hub where travelers become part of the local family, where surf lessons come with stories of the ocean's history, and where every meal is an invitation to discover Moroccan flavors."
     },
-    "founder": {
-      "title": "Meet Our Founder",
-      "description": "Passionate about surfing and Moroccan culture, our founder created The Cove to share the magic of Tamraght with travelers from around the world."
+    "mission": {
+      "title": "Our Mission & Values",
+      "description": "We believe in the power of the ocean to bring people together and the importance of preserving local culture while sharing it with the world.",
+      "authenticity": {
+        "title": "Authenticity",
+        "description": "We provide genuine experiences that respect and celebrate local traditions, ensuring every guest leaves with real cultural insights."
+      },
+      "community": {
+        "title": "Community",
+        "description": "We're deeply connected to the Tamraght community, ensuring our guests' experiences benefit local families and preserve the village's unique character."
+      },
+      "excellence": {
+        "title": "Excellence",
+        "description": "From surf instruction to accommodation, we maintain the highest standards while keeping our warm, welcoming atmosphere that makes guests feel at home."
+      }
     },
     "team": {
-      "title": "Our Team",
-      "surfing": {
-        "title": "Surfing Team",
-        "description": "Our experienced surf instructors are passionate about sharing their love for the ocean and helping you catch the perfect wave."
+      "title": "Meet the Team",
+      "description": "Our passionate team of local guides, surf instructors, and hospitality experts are here to make your stay unforgettable.",
+      "surfInstructor": {
+        "name": "Surf Instructor",
+        "role": "Lead Surf Instructor",
+        "description": "Born and raised in Tamraght, our lead instructor has been surfing these waters for over 15 years. Deep knowledge of local breaks and passion for teaching makes the perfect guide for surfers of all levels."
       },
-      "cooking": {
-        "title": "Cooking Team", 
-        "description": "Our talented chefs bring you authentic Moroccan flavors and fresh local ingredients in every meal."
+      "cookingExpert": {
+        "name": "Cooking Expert",
+        "role": "Culinary Expert",
+        "description": "Our culinary expert comes from a family of traditional Moroccan cooks. She shares authentic recipes passed down through generations, teaching guests the art of tagine, couscous, and other local specialties."
       },
-      "horseback": {
-        "title": "Horseback Team",
-        "description": "Experience the beauty of Morocco's coastline and countryside with our skilled horseback riding guides."
+      "ridingGuide": {
+        "name": "Riding Guide",
+        "role": "Horseback Riding Guide",
+        "description": "Our riding guide has been working with horses since childhood and knows every trail from the beach to the Atlas Mountains. A gentle approach ensures both beginners and experienced riders feel comfortable and safe."
       }
+    },
+    "cta": {
+      "title": "Ready to Join Our Story?",
+      "description": "Become part of The Cove Surf House family. Book your stay and create memories that will last a lifetime in beautiful Tamraght.",
+      "button": "Get in Touch"
     }
   },
   "activities": {
     "hero": {
       "title": "Activities & Experiences",
-      "subtitle": "Adventure Awaits at Every Turn"
+      "subtitle": "Adventure Awaits at Every Turn",
+      "description": "Dive into authentic Moroccan culture and adventure. From world-class surf breaks to traditional cooking workshops, every experience is designed to create lasting memories."
     },
     "surfing": {
-      "title": "Surfing Lessons",
-      "description": "Professional surf instruction for all levels"
+      "title": "Surf Lessons",
+      "description": "Learn to surf with our certified local instructors who know every break along the coast. From complete beginners to advanced surfers looking to improve technique.",
+      "features": ["Beginner to advanced levels", "Professional equipment included", "Small group sizes", "Safety-first approach"],
+      "duration": "2-3 hours"
     },
     "horseback": {
       "title": "Horseback Riding", 
-      "description": "Scenic rides along the beautiful coastline"
+      "description": "Experience the magic of riding along pristine beaches at sunset, with views of the Atlas Mountains in the distance. A truly unforgettable way to connect with nature.",
+      "features": ["Beach and countryside routes", "Sunset rides available", "All skill levels welcome", "Professional guides"],
+      "duration": "1-2 hours"
     },
     "hiking": {
       "title": "Hiking Tours",
-      "description": "Explore Morocco's stunning mountain landscapes"
+      "description": "Explore the stunning landscapes surrounding Tamraght, from coastal cliffs to Atlas Mountain foothills. Discover hidden waterfalls and traditional Berber villages.",
+      "features": ["Multiple difficulty levels", "Local guide included", "Traditional lunch", "Transportation provided"],
+      "duration": "Half or full day"
     },
     "cooking": {
-      "title": "Cooking Classes",
-      "description": "Learn to cook authentic Moroccan cuisine"
+      "title": "Cooking Workshops",
+      "description": "Master the art of traditional Moroccan cuisine with local families. Learn to prepare tagines, couscous, and other authentic dishes using age-old recipes.",
+      "features": ["Hands-on cooking experience", "Traditional recipes", "Local family hosts", "Market visit included"],
+      "duration": "3-4 hours"
     },
     "musicDance": {
-      "title": "Music & Dance",
-      "description": "Experience traditional Moroccan culture"
+      "title": "Music & Dance Sessions",
+      "description": "Immerse yourself in Moroccan culture through traditional music and dance. Learn basic rhythms on traditional instruments and enjoy authentic performances.",
+      "features": ["Traditional instruments", "Local musicians", "Interactive sessions", "Cultural stories"],
+      "duration": "2 hours"
     },
     "fishing": {
-      "title": "Fishing Trips",
-      "description": "Traditional fishing with local fishermen"
-    }
+      "title": "Evening Fire Camps",
+      "description": "End your days with magical evenings around the fire on the beach. Share stories, enjoy traditional tea, and watch the stars appear over the Atlantic.",
+      "features": ["Beachside location", "Traditional mint tea", "Storytelling", "Stargazing"],
+      "duration": "2-3 hours"
+    },
+    "cta": {
+      "title": "Ready for Your Adventure?",
+      "description": "Book your activities now and get ready for an unforgettable experience in Tamraght. Our team is here to help you create the perfect itinerary.",
+      "button": "Book Your Experience"
+    },
+    "bookButton": "Book This Experience"
   },
   "gallery": {
     "hero": {
       "title": "Gallery",
-      "subtitle": "Moments from Paradise"
+      "subtitle": "Moments from Paradise",
+      "description": "Discover the beauty of life at The Cove Surf House through our photo gallery."
+    },
+    "instagram": {
+      "title": "Follow Our Journey",
+      "description": "For the latest photos, follow us on Instagram @thecovesurfhouse",
+      "button": "View on Instagram"
+    },
+    "photoGallery": {
+      "title": "Photo Gallery"
     }
   },
   "booking": {
     "hero": {
       "title": "Book Your Stay",
-      "subtitle": "Secure Your Moroccan Adventure"
+      "subtitle": "Secure Your Moroccan Adventure",
+      "description": "Ready to experience the magic of The Cove Surf House? Fill out the form below and we'll get back to you with all the details for your perfect Moroccan adventure."
     },
     "form": {
+      "title": "Booking Information",
       "name": "Full Name",
       "email": "Email Address",
       "phone": "Phone Number",
+      "activity": "Select Activity",
+      "activityDefault": "General stay (no specific activity)",
       "checkin": "Check-in Date",
       "checkout": "Check-out Date", 
       "guests": "Number of Guests",
+      "guestCount": "Guest",
+      "guestCountPlural": "Guests",
       "message": "Special Requests",
-      "submit": "Book Now"
+      "submit": "Send WhatsApp Message",
+      "required": "*"
+    },
+    "contact": {
+      "title": "Contact Information",
+      "description": "Get in touch with us directly for any questions or special requests. We're here to help make your stay perfect!",
+      "whatsapp": "WhatsApp Us",
+      "call": "Call Us",
+      "email": "Email Us",
+      "visit": "Visit Us"
+    },
+    "location": {
+      "title": "Our Location",
+      "name": "The Cove Surf House",
+      "address": "Tamraght, Agadir, Morocco",
+      "description": "Located in the heart of Tamraght, just steps away from world-class surf breaks and the beautiful Moroccan coastline.",
+      "mapButton": "Open in Google Maps"
     }
   }
 } 

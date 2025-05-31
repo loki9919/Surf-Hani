@@ -38,11 +38,7 @@ const Intro = () => {
             </h2>
             
             <p className="text-body-lg text-gray-600 mb-6">
-              {t('intro.description1')}
-            </p>
-            
-            <p className="text-body text-gray-600 mb-10">
-              {t('intro.description2')}
+              {t('intro.description')}
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">

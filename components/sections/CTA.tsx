@@ -2,10 +2,12 @@
 
 import { useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
+import useTranslation from '@/hooks/useTranslation'
 
 const CTA = () => {
   const [isVisible, setIsVisible] = useState(false)
   const sectionRef = useRef<HTMLDivElement>(null)
+  const { t } = useTranslation()
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -46,22 +48,21 @@ const CTA = () => {
 
       <div className="relative z-10 max-w-4xl mx-auto text-center">
         <div className={`scroll-fade-in ${isVisible ? 'visible' : ''}`}>
-          <h2 className="heading-lg text-white mb-6">
-            Ready to Experience
-            <span className="block text-gold">The Ocean's Call?</span>
+          <h2 className="heading-lg text-white mb-6 leading-tight">
+            {t('cta.title')}
+            <span className="block text-gold">{t('cta.subtitle')}</span>
           </h2>
           
           <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto leading-relaxed">
-            Your perfect surf adventure awaits in Tamraght. Book your stay today and become part 
-            of our growing family of ocean lovers and culture enthusiasts.
+            {t('cta.description')}
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
             <Link
               href="/booking"
-              className="bg-white text-ocean px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 hover:shadow-lg hover:scale-105 focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-50 inline-flex items-center space-x-2"
+              className="bg-white text-ocean px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 hover:shadow-lg hover:scale-105 focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-50 inline-flex items-center space-x-2 min-w-[200px] justify-center"
             >
-              <span>Book Your Adventure</span>
+              <span>{t('cta.bookButton')}</span>
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
               </svg>
@@ -69,27 +70,27 @@ const CTA = () => {
             
             <Link
               href="/gallery"
-              className="bg-white/20 backdrop-blur-sm text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 hover:bg-white/30 hover:shadow-lg hover:scale-105 focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-50 inline-flex items-center space-x-2"
+              className="bg-white/20 backdrop-blur-sm text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 hover:bg-white/30 hover:shadow-lg hover:scale-105 focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-50 inline-flex items-center space-x-2 min-w-[200px] justify-center"
             >
-              <span>View Gallery</span>
+              <span>{t('cta.galleryButton')}</span>
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2 2v12a2 2 0 002 2z" />
               </svg>
             </Link>
           </div>
 
-          <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8 text-white/80">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-white/80">
             <div className="text-center">
-              <div className="text-3xl font-bold text-white">100+</div>
-              <div className="text-sm">Happy Guests</div>
+              <div className="text-3xl font-bold text-white">{t('cta.stats.guests.number')}</div>
+              <div className="text-sm">{t('cta.stats.guests.label')}</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl font-bold text-white">5★</div>
-              <div className="text-sm">Average Rating</div>
+              <div className="text-3xl font-bold text-white">{t('cta.stats.rating.number')}</div>
+              <div className="text-sm">{t('cta.stats.rating.label')}</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl font-bold text-white">24/7</div>
-              <div className="text-sm">Support Available</div>
+              <div className="text-3xl font-bold text-white">{t('cta.stats.support.number')}</div>
+              <div className="text-sm">{t('cta.stats.support.label')}</div>
             </div>
           </div>
         </div>

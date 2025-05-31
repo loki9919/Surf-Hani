@@ -2,110 +2,154 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import Logo from './Logo'
 import LanguageSwitcher from './LanguageSwitcher'
 import useTranslation from '@/hooks/useTranslation'
 
-const Navigation = () => {
+export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
+  const pathname = usePathname()
   const { t } = useTranslation()
+  const isHomePage = pathname === '/'
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50)
+      setIsScrolled(window.scrollY > 20)
     }
+
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
   const navItems = [
-    { href: '/', label: t('navigation.home') },
-    { href: '/about', label: t('navigation.about') },
-    { href: '/activities', label: t('navigation.activities') },
-    { href: '/gallery', label: t('navigation.gallery') },
+    { name: t('navigation.home'), path: '/' },
+    { name: t('navigation.about'), path: '/about' },
+    { name: t('navigation.activities'), path: '/activities' },
+    { name: t('navigation.gallery'), path: '/gallery' },
   ]
+
+  // For non-home pages, always show a background for better visibility
+  const shouldShowBackground = !isHomePage || isScrolled
 
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-      isScrolled ? 'bg-white shadow-lg' : 'bg-white/90 backdrop-blur-sm'
+      shouldShowBackground
+        ? 'bg-white/95 backdrop-blur-md shadow-lg border-b border-gray-200/20' 
+        : 'bg-white/10 backdrop-blur-sm'
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-20">
-          {/* Enhanced Logo */}
-          <Link href="/" className="group">
-            <Logo size="md" className="transition-transform duration-300 group-hover:scale-105" />
-          </Link>
+        <div className="flex justify-between items-center h-16">
+          {/* Logo */}
+          <div className="flex-shrink-0">
+            <Link href="/" className="flex items-center space-x-2">
+              <Logo size="sm" />
+            </Link>
+          </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
-            {navItems.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="relative text-gray-700 hover:text-ocean transition-colors duration-200 font-medium font-display group"
-              >
-                {item.label}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-terracotta transition-all duration-300 group-hover:w-full"></span>
-              </Link>
-            ))}
-            {/* Language Switcher */}
+          <div className="hidden md:block">
+            <div className="ml-10 flex items-baseline space-x-8">
+              {navItems.map((item) => (
+                <Link
+                  key={item.path}
+                  href={item.path}
+                  className={`px-3 py-2 text-sm font-medium transition-all duration-200 relative group ${
+                    pathname === item.path
+                      ? shouldShowBackground
+                        ? 'text-ocean'
+                        : 'text-white'
+                      : shouldShowBackground
+                        ? 'text-gray-600 hover:text-ocean'
+                        : 'text-white/90 hover:text-white'
+                  }`}
+                >
+                  {item.name}
+                  <span className={`absolute bottom-0 left-0 w-full h-0.5 transform scale-x-0 transition-transform duration-200 group-hover:scale-x-100 ${
+                    pathname === item.path
+                      ? 'scale-x-100'
+                      : ''
+                  } ${
+                    shouldShowBackground ? 'bg-ocean' : 'bg-white'
+                  }`}></span>
+                </Link>
+              ))}
+            </div>
+          </div>
+
+          {/* Language Switcher and CTA */}
+          <div className="hidden md:flex items-center space-x-4">
             <LanguageSwitcher />
             <Link
               href="/booking"
-              className="btn-primary"
+              className={`btn-primary text-sm px-6 py-2 transition-all duration-200 ${
+                shouldShowBackground
+                  ? 'bg-ocean text-white hover:bg-ocean/90'
+                  : 'bg-white/20 text-white hover:bg-white/30 border border-white/30'
+              }`}
             >
-              {t('navigation.booking')}
+              {t('navigation.book')}
             </Link>
           </div>
 
           {/* Mobile menu button */}
-          <button
-            className="md:hidden p-2 rounded-md text-gray-700 hover:text-ocean hover:bg-gray-100 focus:outline-none transition-all duration-200"
-            onClick={() => setIsOpen(!isOpen)}
-            aria-label="Toggle menu"
-          >
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              {isOpen ? (
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+          <div className="md:hidden flex items-center space-x-2">
+            <LanguageSwitcher />
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              className={`inline-flex items-center justify-center p-2 rounded-md transition-colors duration-200 ${
+                shouldShowBackground
+                  ? 'text-gray-600 hover:text-ocean hover:bg-gray-100'
+                  : 'text-white hover:text-white hover:bg-white/10'
+              }`}
+              aria-expanded="false"
+            >
+              <span className="sr-only">Open main menu</span>
+              {!isOpen ? (
+                <svg className="block h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
               ) : (
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                <svg className="block h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
               )}
-            </svg>
-          </button>
+            </button>
+          </div>
         </div>
+      </div>
 
-        {/* Enhanced Mobile Navigation */}
-        {isOpen && (
-          <div className="md:hidden border-t border-gray-200 bg-white/95 backdrop-blur-sm">
-            <div className="px-4 pt-4 pb-6 space-y-3">
-              {navItems.map((item) => (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className="block px-4 py-3 text-gray-700 hover:text-ocean hover:bg-gray-50 rounded-lg transition-all duration-200 font-medium font-display"
-                  onClick={() => setIsOpen(false)}
-                >
-                  {item.label}
-                </Link>
-              ))}
-              {/* Mobile Language Switcher */}
-              <div className="px-4 py-3">
-                <LanguageSwitcher />
-              </div>
+      {/* Mobile Navigation Menu */}
+      {isOpen && (
+        <div className="md:hidden">
+          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white/95 backdrop-blur-md border-t border-gray-200/20">
+            {navItems.map((item) => (
               <Link
-                href="/booking"
-                className="block w-full text-center px-4 py-3 bg-terracotta text-white rounded-lg hover:bg-opacity-90 transition-all duration-200 font-medium font-display mt-4"
+                key={item.path}
+                href={item.path}
+                className={`block px-3 py-2 text-base font-medium transition-colors duration-200 ${
+                  pathname === item.path
+                    ? 'text-ocean bg-ocean/10'
+                    : 'text-gray-600 hover:text-ocean hover:bg-gray-50'
+                }`}
                 onClick={() => setIsOpen(false)}
               >
-                {t('navigation.booking')}
+                {item.name}
+              </Link>
+            ))}
+            <div className="px-3 py-2">
+              <Link
+                href="/booking"
+                className="block w-full text-center bg-ocean text-white px-4 py-2 rounded-md font-medium hover:bg-ocean/90 transition-colors duration-200"
+                onClick={() => setIsOpen(false)}
+              >
+                {t('navigation.book')}
               </Link>
             </div>
           </div>
-        )}
-      </div>
+        </div>
+      )}
     </nav>
   )
-}
-
-export default Navigation 
+} 

@@ -14,13 +14,6 @@ const Hero = () => {
     setIsVisible(true)
   }, [])
 
-  // Debug logging
-  useEffect(() => {
-    console.log('Hero - Current locale:', locale)
-    console.log('Hero - Is loading:', isLoading)
-    console.log('Hero - Title translation:', t('hero.title'))
-  }, [locale, isLoading, t])
-
   return (
     <section className="relative h-screen flex items-center justify-center overflow-hidden">
       {/* Background Image */}
@@ -38,162 +31,125 @@ const Hero = () => {
       </div>
 
       {/* Enhanced Animated Background Elements */}
-      <div className="absolute inset-0 z-5">
-        {/* Horizontal Moving Waves - Bottom Layer */}
-        <div className="absolute bottom-0 left-0 w-full h-96 overflow-hidden">
-          <svg
-            className="absolute bottom-0 left-0 w-[200%] h-full"
-            style={{ 
-              animation: 'gentle-wave 20s linear infinite',
-              transform: 'translateZ(0)',
-            }}
-            viewBox="0 0 2880 320"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M0,96L60,112C120,128,240,160,360,186.7C480,213,600,235,720,224C840,213,960,171,1080,170.7C1200,171,1320,213,1440,213.3C1560,213,1680,171,1800,149.3C1920,128,2040,128,2160,144C2280,160,2400,192,2520,197.3C2640,203,2760,181,2820,170.7L2880,160V320H2820C2760,320,2640,320,2520,320C2400,320,2280,320,2160,320C2040,320,1920,320,1800,320C1680,320,1560,320,1440,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320H0V96Z"
-              fill="rgba(255,255,255,0.08)"
-            />
-          </svg>
-        </div>
-
-        {/* Second Horizontal Wave Layer */}
-        <div className="absolute bottom-0 left-0 w-full h-80 overflow-hidden">
-          <svg
-            className="absolute bottom-0 left-0 w-[200%] h-full"
-            style={{ 
-              animation: 'gentle-wave-reverse 15s linear infinite',
-              transform: 'translateZ(0)',
-            }}
-            viewBox="0 0 2880 320"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M0,160L60,149.3C120,139,240,117,360,128C480,139,600,181,720,202.7C840,224,960,224,1080,208C1200,192,1320,160,1440,149.3C1560,139,1680,149,1800,154.7C1920,160,2040,160,2160,154.7C2280,149,2400,139,2520,144C2640,149,2760,171,2820,181.3L2880,192V320H2820C2760,320,2640,320,2520,320C2400,320,2280,320,2160,320C2040,320,1920,320,1800,320C1680,320,1560,320,1440,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320H0V160Z"
-              fill="rgba(239,142,47,0.12)"
-            />
-          </svg>
-        </div>
-
-        {/* Third Horizontal Wave Layer */}
-        <div className="absolute bottom-0 left-0 w-full h-64 overflow-hidden">
-          <svg
-            className="absolute bottom-0 left-0 w-[200%] h-full"
-            style={{ 
-              animation: 'gentle-wave 25s linear infinite',
-              transform: 'translateZ(0)',
-            }}
-            viewBox="0 0 2880 320"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M0,224L60,208C120,192,240,160,360,149.3C480,139,600,149,720,170.7C840,192,960,224,1080,234.7C1200,245,1320,235,1440,213.3C1560,192,1680,160,1800,144C1920,128,2040,128,2160,149.3C2280,171,2400,213,2520,218.7C2640,224,2760,192,2820,176L2880,160V320H2820C2760,320,2640,320,2520,320C2400,320,2280,320,2160,320C2040,320,1920,320,1800,320C1680,320,1560,320,1440,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320H0V224Z"
-              fill="rgba(255,255,255,0.06)"
-            />
-          </svg>
-        </div>
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        {/* Floating circles with subtle animation */}
+        <div className="absolute top-1/4 left-1/4 w-32 h-32 bg-white/5 rounded-full animate-float"></div>
+        <div className="absolute top-3/4 right-1/4 w-24 h-24 bg-gold/10 rounded-full animate-pulse-slow"></div>
+        <div className="absolute bottom-1/4 left-1/3 w-20 h-20 bg-terracotta/10 rounded-full animate-float" style={{ animationDelay: '2s' }}></div>
         
-        {/* Enhanced Floating Elements */}
-        <div className="absolute top-1/3 right-1/6 w-20 h-6 surfboard-animation opacity-40">
-          <svg viewBox="0 0 80 24" fill="none" className="w-full h-full">
-            <ellipse cx="40" cy="12" rx="38" ry="10" fill="rgba(255,255,255,0.3)" />
-            <ellipse cx="40" cy="12" rx="35" ry="7" fill="rgba(239,142,47,0.4)" />
-            <ellipse cx="40" cy="12" rx="30" ry="4" fill="rgba(255,255,255,0.2)" />
+        {/* Multi-Layered Animated Waves */}
+        <div className="wave-container absolute bottom-0 left-0 w-full h-32">
+          {/* Wave Layer 1 - Slowest, most prominent */}
+          <svg 
+            className="absolute bottom-0 left-0 w-[200%] h-32 text-white/8 wave-layer-1"
+            viewBox="0 0 1200 120" 
+            fill="currentColor"
+            preserveAspectRatio="none"
+          >
+            <path d="M0,32L48,37.3C96,43,192,53,288,48C384,43,480,21,576,21.3C672,21,768,43,864,58.7C960,75,1056,85,1152,80C1248,75,1344,53,1392,42.7L1440,32L1440,120L1392,120C1344,120,1248,120,1152,120C1056,120,960,120,864,120C768,120,672,120,576,120C480,120,384,120,288,120C192,120,96,120,48,120L0,120Z"></path>
+          </svg>
+
+          {/* Wave Layer 2 - Medium speed, reverse direction */}
+          <svg 
+            className="absolute bottom-0 left-0 w-[200%] h-32 text-ocean/15 wave-layer-2"
+            viewBox="0 0 1200 120" 
+            fill="currentColor"
+            preserveAspectRatio="none"
+          >
+            <path d="M0,64L48,69.3C96,75,192,85,288,80C384,75,480,53,576,53.3C672,53,768,75,864,90.7C960,107,1056,117,1152,112C1248,107,1344,85,1392,74.7L1440,64L1440,120L1392,120C1344,120,1248,120,1152,120C1056,120,960,120,864,120C768,120,672,120,576,120C480,120,384,120,288,120C192,120,96,120,48,120L0,120Z"></path>
+          </svg>
+
+          {/* Wave Layer 3 - Fast speed */}
+          <svg 
+            className="absolute bottom-0 left-0 w-[200%] h-32 text-white/6 wave-layer-3"
+            viewBox="0 0 1200 120" 
+            fill="currentColor"
+            preserveAspectRatio="none"
+          >
+            <path d="M0,96L48,101.3C96,107,192,117,288,112C384,107,480,85,576,85.3C672,85,768,107,864,122.7C960,139,1056,149,1152,144C1248,139,1344,117,1392,106.7L1440,96L1440,120L1392,120C1344,120,1248,120,1152,120C1056,120,960,120,864,120C768,120,672,120,576,120C480,120,384,120,288,120C192,120,96,120,48,120L0,120Z"></path>
+          </svg>
+
+          {/* Wave Layer 4 - Ultra slow, background layer */}
+          <svg 
+            className="absolute bottom-0 left-0 w-[200%] h-32 text-terracotta/10 wave-layer-4"
+            viewBox="0 0 1200 120" 
+            fill="currentColor"
+            preserveAspectRatio="none"
+          >
+            <path d="M0,16L48,21.3C96,27,192,37,288,32C384,27,480,5,576,5.3C672,5,768,27,864,42.7C960,59,1056,69,1152,64C1248,59,1344,37,1392,26.7L1440,16L1440,120L1392,120C1344,120,1248,120,1152,120C1056,120,960,120,864,120C768,120,672,120,576,120C480,120,384,120,288,120C192,120,96,120,48,120L0,120Z"></path>
+          </svg>
+
+          {/* Wave Layer 5 - Drift effect, subtle */}
+          <svg 
+            className="absolute bottom-0 left-0 w-[200%] h-32 text-gold/8 wave-layer-5"
+            viewBox="0 0 1200 120" 
+            fill="currentColor"
+            preserveAspectRatio="none"
+          >
+            <path d="M0,48L48,53.3C96,59,192,69,288,64C384,59,480,37,576,37.3C672,37,768,59,864,74.7C960,91,1056,101,1152,96C1248,91,1344,69,1392,58.7L1440,48L1440,120L1392,120C1344,120,1248,120,1152,120C1056,120,960,120,864,120C768,120,672,120,576,120C480,120,384,120,288,120C192,120,96,120,48,120L0,120Z"></path>
           </svg>
         </div>
-
-        {/* Animated Sun with Rays */}
-        <div className="absolute top-16 right-16 w-24 h-24">
-          <div className="relative w-full h-full">
-            <div className="absolute inset-0 rounded-full bg-gradient-to-br from-gold/40 to-gold/20 animate-pulse-slow"></div>
-            <div className="absolute inset-2 rounded-full bg-gradient-to-br from-gold/30 to-gold/10"></div>
-            <div className="absolute inset-4 rounded-full bg-gold/20"></div>
-          </div>
-        </div>
-
-        {/* Floating Particles */}
-        {[...Array(6)].map((_, i) => (
-          <div
-            key={i}
-            className="absolute w-2 h-2 rounded-full bg-white/20"
-            style={{
-              top: `${25 + Math.random() * 50}%`,
-              left: `${15 + Math.random() * 70}%`,
-              animation: `float ${5 + Math.random() * 3}s ease-in-out infinite`,
-              animationDelay: `${Math.random() * 3}s`,
-            }}
-          />
-        ))}
       </div>
 
-      {/* Enhanced Content - Better Positioning */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-40 pb-20">
-        <div className={`transition-all duration-1500 ease-out ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
-          
-          {/* Sophisticated Logo Display */}
-          <div className={`mb-8 transition-all duration-2000 ease-out ${isVisible ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-8 scale-95'}`}>
-            <div className="relative inline-block">
-              {/* Background Glow Effect */}
-              <div className="absolute inset-0 bg-white/10 rounded-3xl blur-xl scale-110"></div>
-              
-              {/* Logo Container */}
-              <div className="relative bg-white/15 backdrop-blur-md rounded-2xl p-8 border border-white/20 shadow-2xl transform hover:scale-105 transition-all duration-500 hover:bg-white/20">
-                {/* Inner glow */}
-                <div className="absolute inset-1 bg-gradient-to-br from-white/20 to-transparent rounded-xl"></div>
-                
-                {/* Logo with enhanced styling */}
-                <div className="relative z-10">
+      {/* Content */}
+      <div className="relative z-10 w-full">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center">
+            {/* Simplified Logo - No Text */}
+            <div className={`mb-12 transform transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
+              <div className="inline-flex items-center justify-center">
+                <div className="hero-logo-container bg-white/15 backdrop-blur-md rounded-3xl p-8 shadow-2xl border border-white/30 hover:bg-white/20 transition-all duration-300">
                   <Logo 
                     size="lg" 
-                    className="drop-shadow-lg [&>div]:!w-32 [&>div]:!h-32" 
+                    className="drop-shadow-lg transform scale-150 sm:scale-175 md:scale-200" 
                     showText={false}
                   />
                 </div>
-                
-                {/* Decorative Elements */}
-                <div className="absolute -top-2 -right-2 w-4 h-4 bg-gold/60 rounded-full animate-pulse"></div>
-                <div className="absolute -bottom-2 -left-2 w-3 h-3 bg-terracotta/60 rounded-full animate-pulse" style={{ animationDelay: '1s' }}></div>
               </div>
-              
-              {/* Floating Ring Animation */}
-              <div className="absolute inset-0 rounded-2xl border-2 border-white/30 scale-110 animate-pulse opacity-50"></div>
             </div>
-          </div>
 
-          <h1 className="heading-xl text-white mb-6 drop-shadow-2xl max-w-4xl mx-auto">
-            {t('hero.title')}
-            <span className="block text-gold bg-gradient-to-r from-gold to-terracotta bg-clip-text text-transparent font-black">
-              {t('hero.subtitle')}
-            </span>
-          </h1>
-          
-          <p className="text-body-lg text-white/95 mb-8 max-w-3xl mx-auto drop-shadow-lg">
-            {t('hero.description')}
-          </p>
+            {/* Enhanced Text Content with Better Layout */}
+            <div className={`transform transition-all duration-1000 delay-300 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
+              <h1 className="heading-xl text-white mb-4 max-w-5xl mx-auto leading-tight">
+                <span className="block font-normal text-3xl sm:text-4xl md:text-5xl lg:text-6xl">
+                  {t('hero.title')}
+                </span>
+                <span className="block text-gold font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl mt-2">
+                  {t('hero.subtitle')}
+                </span>
+              </h1>
+            </div>
 
-          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-            <Link
-              href="/booking"
-              className="btn-primary text-lg px-10 py-5 inline-flex items-center space-x-3 shadow-2xl transform transition-all duration-300 hover:shadow-terracotta/25"
-            >
-              <span>{t('hero.cta')}</span>
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-              </svg>
-            </Link>
-            
-            <Link
-              href="/activities"
-              className="btn-secondary text-lg px-10 py-5 inline-flex items-center space-x-3 shadow-2xl transform transition-all duration-300 hover:shadow-ocean/25"
-            >
-              <span>{t('navigation.activities')}</span>
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-              </svg>
-            </Link>
+            <div className={`transform transition-all duration-1000 delay-500 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
+              <p className="text-lg sm:text-xl md:text-2xl text-white/95 mb-8 max-w-4xl mx-auto leading-relaxed drop-shadow-lg px-4">
+                {t('hero.description')}
+              </p>
+            </div>
+
+            {/* Enhanced CTA Buttons with Better Mobile Layout */}
+            <div className={`transform transition-all duration-1000 delay-700 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
+              <div className="flex flex-col sm:flex-row gap-6 justify-center items-center max-w-2xl mx-auto px-4">
+                <Link
+                  href="/booking"
+                  className="w-full sm:w-auto btn-primary text-lg px-10 py-5 inline-flex items-center justify-center space-x-3 shadow-2xl transform transition-all duration-300 hover:shadow-terracotta/25 min-w-[250px]"
+                >
+                  <span className="font-semibold">{t('hero.cta')}</span>
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                  </svg>
+                </Link>
+                
+                <Link
+                  href="/activities"
+                  className="w-full sm:w-auto btn-secondary text-lg px-10 py-5 inline-flex items-center justify-center space-x-3 shadow-2xl transform transition-all duration-300 hover:shadow-ocean/25 min-w-[250px]"
+                >
+                  <span className="font-semibold">{t('navigation.activities')}</span>
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  </svg>
+                </Link>
+              </div>
+            </div>
           </div>
         </div>
       </div>

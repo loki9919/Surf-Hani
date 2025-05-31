@@ -2,68 +2,48 @@
 
 import { useState, useEffect } from 'react'
 
+// Import translations statically to ensure they work in production
+import enTranslations from '../locales/en/common.json'
+import frTranslations from '../locales/fr/common.json'
+
 type TranslationKeys = {
   [key: string]: any
 }
 
+const translations = {
+  en: enTranslations,
+  fr: frTranslations
+}
+
 const useTranslation = () => {
-  const [translations, setTranslations] = useState<TranslationKeys>({})
   const [locale, setLocale] = useState<string>('en')
   const [isLoading, setIsLoading] = useState(true)
 
   // Load initial locale from localStorage
   useEffect(() => {
+    setIsLoading(true)
     if (typeof window !== 'undefined') {
       const savedLocale = localStorage.getItem('locale') || 'en'
       setLocale(savedLocale)
+      console.log('Initial locale loaded:', savedLocale)
     }
+    setIsLoading(false)
   }, [])
 
-  // Load translations when locale changes
-  useEffect(() => {
-    const loadTranslations = async () => {
-      setIsLoading(true)
-      try {
-        let translationModule
-        if (locale === 'fr') {
-          translationModule = await import('../locales/fr/common.json')
-        } else {
-          translationModule = await import('../locales/en/common.json')
-        }
-        
-        setTranslations(translationModule.default || translationModule)
-        console.log(`Loaded ${locale} translations:`, translationModule.default || translationModule)
-      } catch (error) {
-        console.error('Error loading translations:', error)
-        // Fallback to English
-        try {
-          const fallback = await import('../locales/en/common.json')
-          setTranslations(fallback.default || fallback)
-        } catch (fallbackError) {
-          console.error('Error loading fallback translations:', fallbackError)
-          setTranslations({})
-        }
-      } finally {
-        setIsLoading(false)
-      }
-    }
-
-    loadTranslations()
-  }, [locale])
-
   const t = (key: string): string => {
-    if (isLoading || Object.keys(translations).length === 0) {
+    if (isLoading) {
       return key // Return key while loading
     }
 
+    const currentTranslations = translations[locale as keyof typeof translations] || translations.en
     const keys = key.split('.')
-    let value: any = translations
+    let value: any = currentTranslations
 
     for (const k of keys) {
       if (value && typeof value === 'object' && k in value) {
         value = value[k]
       } else {
-        console.warn(`Translation key not found: ${key}`)
+        console.warn(`Translation key not found: ${key} for locale: ${locale}`)
         return key // Return key if translation not found
       }
     }
@@ -72,11 +52,15 @@ const useTranslation = () => {
   }
 
   const changeLanguage = (newLocale: string) => {
-    console.log(`Switching language to: ${newLocale}`)
+    console.log(`Switching language from ${locale} to: ${newLocale}`)
     setLocale(newLocale)
     if (typeof window !== 'undefined') {
       localStorage.setItem('locale', newLocale)
     }
+    
+    // Force a small re-render to ensure components update
+    setIsLoading(true)
+    setTimeout(() => setIsLoading(false), 100)
   }
 
   return {

@@ -1,8 +1,12 @@
+'use client'
+
 import Link from 'next/link'
 import Logo from './Logo'
+import useTranslation from '@/hooks/useTranslation'
 
 const Footer = () => {
   const currentYear = new Date().getFullYear()
+  const { t } = useTranslation()
 
   return (
     <footer className="bg-ocean text-white relative overflow-hidden">
@@ -36,8 +40,7 @@ const Footer = () => {
             </Link>
             
             <p className="text-body text-white mb-6 max-w-md leading-relaxed">
-              Experience the ultimate beach and surf lifestyle in the heart of Tamraght, Morocco. 
-              Where ocean meets adventure, and every sunset tells a new story.
+              {t('footer.description')}
             </p>
             
             {/* Enhanced Social Links */}
@@ -80,26 +83,26 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div>
-            <h3 className="heading-sm text-white mb-6">Quick Links</h3>
+            <h3 className="heading-sm text-white mb-6">{t('footer.quickLinks.title')}</h3>
             <ul className="space-y-3">
               <li>
                 <Link href="/about" className="text-body-sm text-gray-300 hover:text-white hover:translate-x-1 transition-all duration-200 inline-block">
-                  About Us
+                  {t('footer.quickLinks.about')}
                 </Link>
               </li>
               <li>
                 <Link href="/activities" className="text-body-sm text-gray-300 hover:text-white hover:translate-x-1 transition-all duration-200 inline-block">
-                  Activities
+                  {t('footer.quickLinks.activities')}
                 </Link>
               </li>
               <li>
                 <Link href="/gallery" className="text-body-sm text-gray-300 hover:text-white hover:translate-x-1 transition-all duration-200 inline-block">
-                  Gallery
+                  {t('footer.quickLinks.gallery')}
                 </Link>
               </li>
               <li>
                 <Link href="/booking" className="text-body-sm text-gray-300 hover:text-white hover:translate-x-1 transition-all duration-200 inline-block">
-                  Book Now
+                  {t('footer.quickLinks.booking')}
                 </Link>
               </li>
             </ul>
@@ -107,7 +110,7 @@ const Footer = () => {
 
           {/* Contact Info */}
           <div>
-            <h3 className="heading-sm text-white mb-6">Get in Touch</h3>
+            <h3 className="heading-sm text-white mb-6">{t('footer.contact.title')}</h3>
             <div className="space-y-4">
               <div className="flex items-start space-x-3">
                 <svg className="w-5 h-5 text-gold mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
@@ -120,7 +123,7 @@ const Footer = () => {
                   className="hover:text-white transition-colors duration-200"
                 >
                   <p className="text-body-sm text-gray-300 hover:text-white transition-colors duration-200">
-                    Tamraght, Morocco - Near the Ocean
+                    {t('footer.contact.location')}
                   </p>
                 </a>
               </div>
@@ -129,7 +132,7 @@ const Footer = () => {
                   <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
                 </svg>
                 <a href="mailto:hello@thecovemorocco.com" className="text-body-sm text-gray-300 hover:text-white transition-colors duration-200">
-                  hello@thecovemorocco.com
+                  {t('footer.contact.email')}
                 </a>
               </div>
               <div className="flex items-center space-x-3">
@@ -137,7 +140,7 @@ const Footer = () => {
                   <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
                 </svg>
                 <a href="tel:+212623789348" className="text-body-sm text-gray-300 hover:text-white transition-colors duration-200">
-                  +212 6 23789348
+                  {t('footer.contact.phone')}
                 </a>
               </div>
             </div>
@@ -146,7 +149,7 @@ const Footer = () => {
 
         <div className="border-t border-white/20 mt-12 pt-8 flex flex-col sm:flex-row justify-between items-center">
           <p className="text-body-sm text-gray-300">
-            © {currentYear} The Cove Surf House. All rights reserved.
+            {t('footer.copyright')}
           </p>
           <p className="text-body-sm text-gray-300 mt-2 sm:mt-0">
             Crafted with ♥ for the surf community
