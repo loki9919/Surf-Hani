@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import useTranslation from '@/hooks/useTranslation'
+import { useTranslation } from '@/contexts/TranslationContext'
 
 const LanguageSwitcher = () => {
   const { locale, changeLanguage, isLoading } = useTranslation()
@@ -9,17 +9,16 @@ const LanguageSwitcher = () => {
 
   useEffect(() => {
     setIsMounted(true)
-    console.log('LanguageSwitcher mounted with locale:', locale)
-  }, [])
-
-  useEffect(() => {
-    console.log('LanguageSwitcher locale changed to:', locale)
+    // Ensure HTML lang attribute matches the locale on mount
+    document.documentElement.setAttribute('lang', locale)
   }, [locale])
 
   const handleToggle = () => {
     const newLocale = locale === 'en' ? 'fr' : 'en'
-    console.log('Toggle clicked - switching from', locale, 'to', newLocale)
     changeLanguage(newLocale)
+    
+    // Force immediate visual feedback
+    document.documentElement.setAttribute('lang', newLocale)
   }
 
   if (!isMounted) {
@@ -37,7 +36,7 @@ const LanguageSwitcher = () => {
           className="relative inline-flex h-8 w-16 items-center rounded-full bg-white/20 backdrop-blur-sm border border-white/30 transition-all duration-300 hover:bg-white/30 focus:outline-none focus:ring-2 focus:ring-white/50 focus:ring-offset-2 focus:ring-offset-transparent disabled:opacity-50 will-change-auto"
           role="switch"
           aria-checked={locale === 'fr'}
-          aria-label="Toggle language"
+          aria-label={`Switch to ${locale === 'en' ? 'French' : 'English'}`}
         >
           {/* Sliding indicator */}
           <div 
@@ -47,7 +46,7 @@ const LanguageSwitcher = () => {
           >
           </div>
 
-          {/* Left label - EN */}
+          {/* Left label - EN (Default) */}
           <span className={`absolute left-2 text-xs font-bold font-comfortaa transition-colors duration-300 select-none ${
             locale === 'en' ? 'text-gray-800' : 'text-white/80'
           }`}>
@@ -66,7 +65,7 @@ const LanguageSwitcher = () => {
       {/* Debug info - remove this in production */}
       {process.env.NODE_ENV === 'development' && (
         <span className="ml-2 text-xs text-white/60 min-w-[60px]">
-          {locale} {isLoading ? '(loading)' : ''}
+          {locale} {isLoading ? '(loading)' : ''} (default: en)
         </span>
       )}
     </div>

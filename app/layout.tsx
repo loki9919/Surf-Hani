@@ -3,6 +3,7 @@ import { Nunito, Comfortaa } from 'next/font/google'
 import './globals.css'
 import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
+import { TranslationProvider } from '@/contexts/TranslationContext'
 
 const nunito = Nunito({ 
   subsets: ['latin'],
@@ -72,11 +73,13 @@ export default function RootLayout({
         />
       </head>
       <body className={`${nunito.variable} ${comfortaa.variable} font-sans antialiased`}>
-        <Navigation />
-        <main className="min-h-screen">
-          {children}
-        </main>
-        <Footer />
+        <TranslationProvider>
+          <Navigation />
+          <main className="min-h-screen">
+            {children}
+          </main>
+          <Footer />
+        </TranslationProvider>
       </body>
     </html>
   )
