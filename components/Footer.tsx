@@ -16,14 +16,26 @@ const Footer = () => {
           {/* Enhanced Logo and Description */}
           <div className="lg:col-span-2">
             <Link href="/" className="inline-block mb-6 group">
-              <Logo 
-                size="lg" 
-                className="text-white group-hover:scale-105 transition-transform duration-300" 
-                textPosition="right"
-              />
+              <div className="flex items-center space-x-3">
+                <div className="bg-white rounded-lg p-3">
+                  <Logo 
+                    size="lg" 
+                    className="group-hover:scale-105 transition-transform duration-300" 
+                    showText={false}
+                  />
+                </div>
+                <div className="flex flex-col">
+                  <span className="font-bold text-2xl leading-tight text-white">
+                    The Cove Surf House
+                  </span>
+                  <span className="text-sm opacity-80 text-white">
+                    Comfortable stays
+                  </span>
+                </div>
+              </div>
             </Link>
             
-            <p className="text-body text-gray-300 mb-6 max-w-md leading-relaxed">
+            <p className="text-body text-white mb-6 max-w-md leading-relaxed">
               Experience the ultimate beach and surf lifestyle in the heart of Tamraght, Morocco. 
               Where ocean meets adventure, and every sunset tells a new story.
             </p>
@@ -101,10 +113,16 @@ const Footer = () => {
                 <svg className="w-5 h-5 text-gold mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
                 </svg>
-                <div>
-                  <p className="text-body-sm text-gray-300">Tamraght, Morocco</p>
-                  <p className="text-body-sm text-gray-300">Near the Ocean</p>
-                </div>
+                <a 
+                  href="https://www.google.com/maps/place/The+Cove+surf+house/@30.5148315,-9.6823865,16.5z/data=!4m9!3m8!1s0xdb3b3004e354607:0xad148f313b7867a!5m2!4m1!1i2!8m2!3d30.5146357!4d-9.6818656!16s%2Fg%2F11m71zfwzn?entry=ttu&g_ep=EgoyMDI1MDUyNy4wIKXMDSoASAFQAw%3D%3D"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-white transition-colors duration-200"
+                >
+                  <p className="text-body-sm text-gray-300 hover:text-white transition-colors duration-200">
+                    Tamraght, Morocco - Near the Ocean
+                  </p>
+                </a>
               </div>
               <div className="flex items-center space-x-3">
                 <svg className="w-5 h-5 text-gold flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">

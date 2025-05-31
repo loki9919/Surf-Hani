@@ -28,7 +28,7 @@ const Logo: React.FC<LogoProps> = ({
   const logoImage = (
     <div className={`${sizeClasses[size]} relative rounded-lg overflow-hidden shadow-md`}>
       <Image
-        src={`${process.env.NODE_ENV === 'production' ? '/Surf-Hani' : ''}/logo_covehouse.jpg`}
+        src={`${process.env.NODE_ENV === 'production' ? '/Surf-Hani' : ''}/logo.png`}
         alt="The Cove Surf House Logo"
         fill
         className="object-cover"

@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
+import Logo from '@/components/Logo'
 
 const Hero = () => {
   const [isVisible, setIsVisible] = useState(false)
@@ -120,21 +121,52 @@ const Hero = () => {
       </div>
 
       {/* Enhanced Content - Better Positioning */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-20">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-40 pb-20">
         <div className={`transition-all duration-1500 ease-out ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
-          <h1 className="heading-xl text-white mb-8 drop-shadow-2xl max-w-4xl mx-auto">
+          
+          {/* Sophisticated Logo Display */}
+          <div className={`mb-8 transition-all duration-2000 ease-out ${isVisible ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-8 scale-95'}`}>
+            <div className="relative inline-block">
+              {/* Background Glow Effect */}
+              <div className="absolute inset-0 bg-white/10 rounded-3xl blur-xl scale-110"></div>
+              
+              {/* Logo Container */}
+              <div className="relative bg-white/15 backdrop-blur-md rounded-2xl p-8 border border-white/20 shadow-2xl transform hover:scale-105 transition-all duration-500 hover:bg-white/20">
+                {/* Inner glow */}
+                <div className="absolute inset-1 bg-gradient-to-br from-white/20 to-transparent rounded-xl"></div>
+                
+                {/* Logo with enhanced styling */}
+                <div className="relative z-10">
+                  <Logo 
+                    size="lg" 
+                    className="drop-shadow-lg [&>div]:!w-32 [&>div]:!h-32" 
+                    showText={false}
+                  />
+                </div>
+                
+                {/* Decorative Elements */}
+                <div className="absolute -top-2 -right-2 w-4 h-4 bg-gold/60 rounded-full animate-pulse"></div>
+                <div className="absolute -bottom-2 -left-2 w-3 h-3 bg-terracotta/60 rounded-full animate-pulse" style={{ animationDelay: '1s' }}></div>
+              </div>
+              
+              {/* Floating Ring Animation */}
+              <div className="absolute inset-0 rounded-2xl border-2 border-white/30 scale-110 animate-pulse opacity-50"></div>
+            </div>
+          </div>
+
+          <h1 className="heading-xl text-white mb-6 drop-shadow-2xl max-w-4xl mx-auto">
             Where Ocean Meets
             <span className="block text-gold bg-gradient-to-r from-gold to-terracotta bg-clip-text text-transparent font-black">
               Adventure
             </span>
           </h1>
           
-          <p className="text-body-lg text-white/95 mb-10 max-w-3xl mx-auto drop-shadow-lg">
+          <p className="text-body-lg text-white/95 mb-8 max-w-3xl mx-auto drop-shadow-lg">
             Discover your perfect wave at The Cove Surf House. Experience authentic Moroccan coastal culture, 
             world-class surf breaks, and unforgettable adventures in the heart of Tamraght.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16">
+          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
             <Link
               href="/booking"
               className="btn-primary text-lg px-10 py-5 inline-flex items-center space-x-3 shadow-2xl transform transition-all duration-300 hover:shadow-terracotta/25"

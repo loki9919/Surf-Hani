@@ -25,11 +25,30 @@ export const metadata: Metadata = {
   description: 'Experience the ultimate beach and surf lifestyle at The Cove Surf House in Tamraght, Morocco. Surf lessons, horseback riding, hiking tours, and authentic Moroccan experiences.',
   keywords: 'surf hostel, Morocco, Tamraght, surf lessons, beach hostel, surfing, Morocco travel',
   authors: [{ name: 'The Cove Surf House' }],
+  icons: {
+    icon: '/logo.png',
+    shortcut: '/logo.png',
+    apple: '/logo.png',
+  },
   openGraph: {
     title: 'The Cove Surf House | Beach & Surf Lifestyle Hostel',
     description: 'Experience the ultimate beach and surf lifestyle in Tamraght, Morocco',
     type: 'website',
     locale: 'en_US',
+    images: [
+      {
+        url: '/logo.png',
+        width: 800,
+        height: 600,
+        alt: 'The Cove Surf House Logo',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'The Cove Surf House | Beach & Surf Lifestyle Hostel',
+    description: 'Experience the ultimate beach and surf lifestyle in Tamraght, Morocco',
+    images: ['/logo.png'],
   },
   robots: {
     index: true,
