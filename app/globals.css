@@ -64,22 +64,22 @@ body {
   font-display: swap;
 }
 
-/* Enhanced Wave Animations - Smooth and No Glitching */
+/* Enhanced Wave Animations - Horizontal Movement */
 @keyframes gentle-wave {
   0% { 
-    transform: translateX(0px) translateY(0px) translateZ(0);
-  }
-  25% { 
-    transform: translateX(-5px) translateY(-3px) translateZ(0);
-  }
-  50% { 
-    transform: translateX(0px) translateY(-5px) translateZ(0);
-  }
-  75% { 
-    transform: translateX(5px) translateY(-3px) translateZ(0);
+    transform: translateX(0%) translateZ(0);
   }
   100% { 
-    transform: translateX(0px) translateY(0px) translateZ(0);
+    transform: translateX(-100%) translateZ(0);
+  }
+}
+
+@keyframes gentle-wave-reverse {
+  0% { 
+    transform: translateX(-100%) translateZ(0);
+  }
+  100% { 
+    transform: translateX(0%) translateZ(0);
   }
 }
 
